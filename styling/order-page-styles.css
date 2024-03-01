@@ -184,12 +184,12 @@
     background-color: oldlace;
     height: 70vh;
     width: 15vw;
-    text-align: center; /* Centers text horizontally */
+    text-align: center;
 }
 
 .order-personal-details-p-div p {
-    text-align: center; /* Ensures text inside <p> is centered if it wraps */
-    width: 100%; /* Ensures <p> tag takes the full width of its parent */
+    text-align: center;
+    width: 100%;
 }
 
 
