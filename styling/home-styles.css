@@ -2,68 +2,68 @@
     display: flex;
     flex-direction: column;
     background-color: blue;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 10vw;
 }
 
 .header-parent-div {
     display: flex;
     flex-direction: row;
     background-color: red;
-    height: 100px;
-    width: 100%;
+    height: 10vh;
+    width: 100vw;
 }
 
 .store-logo-image-div {
     display: flex;
     background-color: purple;
-    height: 100px;
-    width: 20%;
+    height: 10vh;
+    width: 20vw;
 }
 
 .store-name-div {
     display: flex;
     background-color: brown;
-    height: 100px;
-    width: 50%;
+    height: 10vh
+    width: 50vw;
 }
 
 .address-title-div {
     display: flex;
     background-color: pink;
-    height: 100px;
-    width: 30%;
+    height: 10vh;
+    width: 30vw;
 }
 
 
 .main-content-parent-div {
     display: flex;
     background-color: aqua;
-    height: 400px;
-    width: 100%;
+    height: 80vh;
+    width: 100vw;
 }
 
 
 .left-side-nav-bar-div {
     display: flex;
     background-color: blueviolet;
-    height: 400px;
-    width: 20%;
+    height: 80vh;
+    width: 20vw;
 }
 
 
 .product-display-div {
     display: flex;
     background-color: honeydew;
-    height: 400px;
-    width: 60%;
+    height: 80vh;
+    width: 60vw;
 }
 
 .image-right-side-div {
     display: flex;
     background-color: sienna;
-    height: 400px;
-    width: 20%;
+    height: 80vh;
+    width: 20vw;
 }
 
 
