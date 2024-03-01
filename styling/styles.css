@@ -1,0 +1,75 @@
+.home-wrapper-div {
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+}
+
+.header-parent-div {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    height: 100px;
+    width: 100%;
+}
+
+.store-logo-image-div {
+    display: flex;
+    background-color: purple;
+    height: 100px;
+    width: 20%;
+}
+
+.store-name-div {
+    display: flex;
+    background-color: brown;
+    height: 100px;
+    width: 50%;
+}
+
+.address-title-div {
+    display: flex;
+    background-color: pink;
+    height: 100px;
+    width: 30%;
+}
+
+
+.main-content-parent-div {
+    display: flex;
+    background-color: aqua;
+    height: 400px;
+    width: 100%;
+}
+
+
+.left-side-nav-bar-div {
+    display: flex;
+    background-color: blueviolet;
+    height: 400px;
+    width: 20%;
+}
+
+
+.product-display-div {
+    display: flex;
+    background-color: honeydew;
+    height: 400px;
+    width: 60%;
+}
+
+.image-right-side-div {
+    display: flex;
+    background-color: sienna;
+    height: 400px;
+    width: 20%;
+}
+
+
+
+
+
+
+
+
