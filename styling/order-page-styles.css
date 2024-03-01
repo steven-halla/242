@@ -3,68 +3,195 @@
     flex-direction: column;
     background-color: blue;
     height: 100vh;
-    width: 10vw;
+    width: 100vw;
 }
 
 .header-parent-div {
     display: flex;
     flex-direction: row;
     background-color: red;
-    height: 10vh;
+    height: 20vh;
     width: 100vw;
 }
 
 .store-logo-image-div {
     display: flex;
     background-color: purple;
-    height: 10vh;
+    height: 20vh;
     width: 20vw;
 }
 
 .store-name-div {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+
     background-color: brown;
-    height: 10vh
-    width: 50vw;
+    height: 20vh;
+    width: 60vw;
 }
 
 .address-title-div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: pink;
-    height: 10vh;
-    width: 30vw;
+    height: 20vh;
+    width: 20vw;
 }
 
 
 .main-content-parent-div {
     display: flex;
     background-color: aqua;
-    height: 80vh;
+    height: 70vh;
     width: 100vw;
 }
 
 
 .left-side-nav-bar-div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: blueviolet;
-    height: 80vh;
+    height: 70vh;
     width: 20vw;
+}
+
+.left-side-nav-bar-div p {
+    text-decoration: underline;
 }
 
 
 .product-display-div {
     display: flex;
+    flex-direction: column;
     background-color: honeydew;
-    height: 80vh;
+    height: 70vh;
     width: 60vw;
 }
 
-.image-right-side-div {
+.product-select-p-div {
+    display: flex;
+    background-color: green;
+    height: 10%;
+    width: 60vw;
+}
+
+.product-select-div {
+    display: flex;
+    background-color: mediumpurple;
+    height: 60%;
+    width: 60vw;
+}
+
+.product-add-on-parent-div {
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+    height: 20%;
+    width: 60vw;
+}
+
+.product-add-on-p-div {
+    display: flex;
+    background-color: lightcoral;
+    height: 100%;
+    width: 60vw;
+}
+
+.product-add-on-radio-div {
+    display: flex;
+    flex-direction: column;
+
+    background-color: lightpink;
+    height: 100%;
+    width: 60vw;
+}
+
+
+
+
+
+
+.product-button-div {
+    display: flex;
+    background-color: lightsalmon;
+    height: 10%;
+    width: 60vw;
+}
+
+
+
+
+
+
+
+
+
+
+.order-details-parent-div {
     display: flex;
     background-color: sienna;
-    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
     width: 20vw;
 }
+
+
+
+.order-summary-p-div {
+    display: flex;
+    background-color: red;
+    height: 70vh;
+    width: 20vw;
+}
+
+
+.order-details-purchase-details-div {
+    display: flex;
+    background-color: lightgrey;
+    height: 70vh;
+    width: 20vw;
+}
+
+
+.order-details-product-img-div {
+    display: flex;
+    background-color: navajowhite;
+    height: 70vh;
+    width: 20vw;
+}
+
+
+.order-costs-details-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    height: 70vh;
+    width: 20vw;
+}
+
+
+.order-personal-details-p-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: oldlace;
+    height: 70vh;
+    width: 15vw;
+    text-align: center; /* Centers text horizontally */
+}
+
+.order-personal-details-p-div p {
+    text-align: center; /* Ensures text inside <p> is centered if it wraps */
+    width: 100%; /* Ensures <p> tag takes the full width of its parent */
+}
+
 
 
 
