@@ -6,6 +6,8 @@
     <title>Online store</title>
     <link rel="stylesheet" href="../styling/order-page-styles.css">
     <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="home-wrapper-div">
@@ -29,6 +31,7 @@
     <nav>
     </nav>
     <main>
+
         <div class="main-content-parent-div">
             <div class="left-side-nav-bar-div">
                 <a href="home.html"><p>Home</p></a>
@@ -81,16 +84,16 @@
                         </label>
                         <label>
                             <input type="radio" name="productOption2" value="bookletAndCase">
-                            booklet and case
+                            booklet and case: add $100 to cost of game
                         </label>
                     </div>
 
 
                 </div>
-
                 <div class="product-button-div">
-                        <button>Submit Order</button>
+                    <button id="submitOrderButton">Submit Order</button>
                 </div>
+
 
             </div>
             <div class="order-details-parent-div">
@@ -128,6 +131,26 @@
     <footer>
 
     </footer>
+    <script>
+        $(document).ready(function() {
+            $('input[type="radio"][name="game1"]').change(function() {
+                localStorage.setItem('selectedGame', $(this).val());
+            });
+
+            var selectedGame = localStorage.getItem('selectedGame');
+            if (selectedGame) {
+                $('input[type="radio"][name="game1"][value="' + selectedGame + '"]').prop('checked', true);
+            }
+
+            $('#submitOrderButton').click(function() {
+                var selectedValue = $('input[type="radio"][name="game1"]:checked').val();
+                console.log('Selected item:', selectedValue);
+                window.location.href = 'customer-info-page.html';
+            });
+        });
+
+    </script>
+
 </div>
 </body>
 </html>

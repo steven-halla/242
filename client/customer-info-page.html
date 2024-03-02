@@ -6,6 +6,8 @@
     <title>Online store</title>
     <link rel="stylesheet" href="../styling/customer-info-page-styles.css">
     <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="home-wrapper-div">
@@ -71,6 +73,17 @@
     <footer>
 
     </footer>
+    <script>
+        $(document).ready(function() {
+            var selectedGame = localStorage.getItem('selectedGame');
+            console.log('Selected game from localStorage:', selectedGame);
+            if (selectedGame) {
+                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
+            }
+        });
+
+    </script>
+
 </div>
 </body>
 </html>
