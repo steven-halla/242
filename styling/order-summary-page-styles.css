@@ -6,6 +6,16 @@
     width: 100vw;
 }
 
+.product-display-div {
+    display: flex;
+    /*background-color: honeydew;*/
+    flex-direction: column;
+
+    height: 70vh;
+    width: 60vw;
+}
+
+
 .header-parent-div {
     display: flex;
     flex-direction: row;
@@ -71,11 +81,40 @@
     width: 60vw;
 }
 
+.product-thank-you-ordering-p-div {
+    display: flex;
+    background-color: red;
+    height: 20%;
+    width: 100%;
+}
 
+.product-address-shipping-p-div {
+    display: flex;
+    background-color: olivedrab;
+    height: 20%;
+    width: 100%;
+}
 
+.product-add-ons-div {
+    display: flex;
+    background-color: orange;
+    height: 20%;
+    width: 100%;
+}
 
+.product-img-div {
+    display: flex;
+    background-color: lemonchiffon;
+    height: 20%;
+    width: 100%;
+}
 
-
+.product-price-div {
+    display: flex;
+    background-color: yellow;
+    height: 20%;
+    width: 100%;
+}
 
 
 

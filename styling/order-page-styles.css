@@ -133,6 +133,7 @@
 
 .order-details-parent-div {
     display: flex;
+
     background-color: sienna;
     flex-direction: column;
     justify-content: center;

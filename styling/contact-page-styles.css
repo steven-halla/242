@@ -66,10 +66,50 @@
 
 .product-display-div {
     display: flex;
+    flex-direction: column;
     background-color: honeydew;
     height: 70vh;
     width: 60vw;
 }
+
+.product-fill-out-form-p-div {
+    display: flex;
+    background-color: red;
+    height: 10%;
+    width: 100%;
+}
+
+.product-customer-info-p-div {
+    display: flex;
+    background-color: yellowgreen;
+    height: 10%;
+    width: 100%;
+}
+
+.product-left-right-div {
+    display: flex;
+    background-color: mediumspringgreen;
+    height: 80%;
+    width: 100%;
+}
+
+.product-left-info-p-div {
+    display: flex;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+
+
+.product-left-right-div {
+    display: flex;
+    background-color: blueviolet;
+    height: 100%;
+    width: 100%;
+}
+
+
+
 
 
 
