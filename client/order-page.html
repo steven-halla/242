@@ -8,8 +8,24 @@
     <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script>
+        const games = [
+            { name: "game1", value: "videogame1", price: 50 },
+            { name: "game2", value: "videogame2", price: 80 },
+            { name: "game3", value: "videogame3", price: 150 }
+        ];
+
+        const productOptions = [
+            { name: "cartridge only", price: 0 },
+            { name: "booklet and case", price: 100 }
+        ];
+
+
+    </script>
+
 </head>
 <body>
+
 <div class="home-wrapper-div">
     <header>
         <div class="header-parent-div">
@@ -48,14 +64,14 @@
 
                 <div class="product-select-parent-div">
                     <div class="product-select-left-div">
-                        <input type="radio" name="game1" value="videogame1">
+                        <input type="radio" name="game" value="videogame1" >
                         <p>game 1</p>
                         <p>$50</p>
 
                     </div>
 
                     <div class="product-select-middle-div">
-                        <input type="radio" name="game2" value="videogame2">
+                        <input type="radio" name="game" value="videogame2">
                         <p>game 2</p>
                         <p>$80</p>
 
@@ -63,7 +79,7 @@
                     </div>
 
                     <div class="product-select-right-div">
-                        <input type="radio" name="game3" value="videogame3">
+                        <input type="radio" name="game" value="videogame3">
                         <p>game 3</p>
                         <p>$150</p>
 
@@ -79,14 +95,15 @@
                     </div>
                     <div class="product-add-on-radio-div">
                         <label>
-                            <input type="radio" name="productOption1" value="cartridgeOnly">
+                            <input type="radio" name="productOption" value="0" >
                             cartridge only
                         </label>
                         <label>
-                            <input type="radio" name="productOption2" value="bookletAndCase">
+                            <input type="radio" name="productOption" value="100">
                             booklet and case: add $100 to cost of game
                         </label>
                     </div>
+
 
 
                 </div>
@@ -102,7 +119,7 @@
                 </div>
 
                 <div class="order-details-purchase-details-div">
-                    <p>I am what you bought</p>
+<!--                    <p>I am what you bought</p>-->
                 </div>
 
                 <div class="order-details-product-img-div">
@@ -110,9 +127,9 @@
                 </div>
 
                 <div class="order-costs-details-div">
-                        <p>sub total</p>
-                    <p>tax</p>
-                        <p>total</p>
+                        <p class="subtotal" sub total</p>
+                    <p class="tax">tax</p>
+                        <p class="subtotalplustax">total</p>
                 </div>
 
                 <div class="order-personal-details-p-div">
@@ -132,22 +149,201 @@
 
     </footer>
     <script>
+
         $(document).ready(function() {
-            $('input[type="radio"][name="game1"]').change(function() {
-                localStorage.setItem('selectedGame', $(this).val());
+            localStorage.clear();
+        });
+        $(document).ready(function() {
+            $('input[type="radio"][name="game"]').change(function() {
+                var selectedValue = $(this).val();
+                var selectedGame = games.find(game => game.value === selectedValue);
+                localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
             });
 
-            var selectedGame = localStorage.getItem('selectedGame');
-            if (selectedGame) {
-                $('input[type="radio"][name="game1"][value="' + selectedGame + '"]').prop('checked', true);
-            }
+            $('input[type="radio"][name="productOption"]').change(function() {
+                var selectedValue = $(this).val();
+                var selectedOption = productOptions.find(option => option.price.toString() === selectedValue);
+                localStorage.setItem('productOption', JSON.stringify(selectedOption));
+            });
 
             $('#submitOrderButton').click(function() {
-                var selectedValue = $('input[type="radio"][name="game1"]:checked').val();
-                console.log('Selected item:', selectedValue);
-                window.location.href = 'customer-info-page.html';
+                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+
+                if (!selectedGame) {
+                    alert('Please select a game.');
+                } else if (!selectedProductOption) {
+                    alert('Please select a product option.');
+                } else {
+                    window.location.href = 'customer-info-page.html';
+                }
             });
         });
+
+
+
+        // $(document).ready(function() {
+        //     $('input[type="radio"][name="productOption"]').change(function() {
+        //         var selectedValue = $(this).val();
+        //         var selectedOption = productOptions.find(option => option.price.toString() === selectedValue);
+        //         localStorage.setItem('productOption', JSON.stringify(selectedOption));
+        //         console.log('Selected product option:', selectedOption);
+        //     });
+        //
+        //     $('#submitOrderButton').click(function() {
+        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+        //
+        //         if (!selectedProductOption) {
+        //             alert('Please select a product option.');
+        //         } else {
+        //             window.location.href = 'customer-info-page.html';
+        //         }
+        //     });
+        // });
+
+
+
+
+
+
+        $(document).ready(function() {
+            $('input[type="radio"][name="game"]').change(function() {
+                var selectedGameValue = $(this).val();
+                var selectedGame = games.find(game => game.value === selectedGameValue);
+                localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
+                updateOrderDetails();
+            });
+
+            $('input[type="radio"][name="productOption"]').change(function() {
+                var selectedOptionValue = $(this).val();
+                var selectedProductOption = productOptions.find(option => option.price.toString() === selectedOptionValue);
+                localStorage.setItem('productOption', JSON.stringify(selectedProductOption));
+                updateOrderDetails();
+            });
+
+            function updateOrderDetails() {
+                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+
+                var text = 'Selected videogame: ';
+                if (selectedGame) {
+                    text += `${selectedGame.name}`;
+                }
+                if (selectedProductOption) {
+                    text += ` with ${selectedProductOption.name}`;
+                }
+                // if (selectedGame && selectedProductOption) {
+                //     var totalPrice = selectedGame.price + selectedProductOption.price;
+                //     text += ` - Price: $${totalPrice}`;
+                // }
+
+                $('.order-details-purchase-details-div').text(text);
+            }
+
+            updateOrderDetails();
+        });
+
+
+        // $(document).ready(function() {
+        //     $('input[type="radio"][name="game"], input[type="radio"][name="productOption"]').change(function() {
+        //         updateOrderDetails();
+        //     });
+        //
+        //     function updateOrderDetails() {
+        //         var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+        //         if (selectedGame || selectedProductOption) {
+        //             var gamePrice = selectedGame ? selectedGame.price : 0;
+        //             var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
+        //             var subtotal = gamePrice + optionPrice;
+        //             $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
+        //             var tax = subtotal * 0.10;
+        //             $('.tax').text('Tax: $' + tax.toFixed(2));
+        //             var total = subtotal + tax;
+        //             $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
+        //         }
+        //     }
+        //
+        //     updateOrderDetails();
+        // });
+        $(document).ready(function() {
+            $('input[type="radio"][name="game"], input[type="radio"][name="productOption"]').change(function() {
+                updateOrderDetails();
+            });
+
+            function updateOrderDetails() {
+                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+                var gamePrice = selectedGame ? selectedGame.price : 0;
+                var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
+                var subtotal = gamePrice + optionPrice;
+                var tax = subtotal * 0.10;
+                var total = subtotal + tax;
+
+                if (!selectedGame && !selectedProductOption) {
+                    subtotal = 0;
+                    tax = 0;
+                    total = 0;
+                }
+
+                $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
+                $('.tax').text('Tax: $' + tax.toFixed(2));
+                $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
+            }
+
+            updateOrderDetails();
+        });
+
+
+
+
+        //
+        // $(document).ready(function() {
+        //     $('input[type="radio"][name="game"]').change(function() {
+        //         var selectedGameValue = $(this).val();
+        //         var selectedGame = games.find(game => game.value === selectedGameValue);
+        //         localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
+        //         updateOrderDetails();
+        //     });
+        //
+        //     $('input[type="radio"][name="productOption"]').change(function() {
+        //         var selectedOptionValue = $(this).val();
+        //         var selectedProductOption = productOptions.find(option => option.price.toString() === selectedOptionValue);
+        //         localStorage.setItem('productOption', JSON.stringify(selectedProductOption));
+        //         updateOrderDetails();
+        //     });
+        //
+        //     function updateOrderDetails() {
+        //         var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+        //         if (selectedGame && selectedProductOption) {
+        //             var gamePrice = selectedGame.price;
+        //             var optionPrice = selectedProductOption.price;
+        //             var subtotal = gamePrice + optionPrice;
+        //             $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
+        //             var tax = subtotal * 0.10;
+        //             $('.tax').text('Tax: $' + tax.toFixed(2));
+        //             var total = subtotal + tax;
+        //             $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
+        //         }
+        //     }
+        //
+        //     updateOrderDetails();
+        // });
+
+
+        $(document).ready(function() {
+            $('input[type="radio"][name="productOption"]').change(function() {
+                var selectedOption = $(this).val();
+                console.log(selectedOption);
+            });
+        });
+
+
+
+
+
+
 
     </script>
 
