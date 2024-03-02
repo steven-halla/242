@@ -63,6 +63,15 @@
     text-decoration: underline;
 }
 
+.left-side-nav-bar-div a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.left-side-nav-bar-div p {
+    text-decoration: underline;
+}
+
 
 .product-display-div {
     display: flex;
