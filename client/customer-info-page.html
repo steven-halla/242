@@ -159,7 +159,11 @@
 
         document.getElementById('zipCode').addEventListener('input', function(event) {
             this.value = this.value.replace(/\D/g, '');
+            if (this.value.length > 5) {
+                this.value = this.value.slice(0, 5);
+            }
         });
+
 
         document.getElementById('phoneNumber').addEventListener('input', function(event) {
             let formattedValue = this.value.replace(/\D/g, '');
