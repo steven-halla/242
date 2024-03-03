@@ -46,46 +46,53 @@
                 <div class="forminputwithtext">
                     <p>Delivery information:  All Fields required</p>
                 </div>
-
-
                 <div class="forminputwithtext">
                     <p>First Name:</p>
-                    <input type="text">
+                    <input type="text" id="firstName">
                 </div>
-
 
                 <div class="forminputwithtext">
                     <p>Last Name:</p>
-                    <input type="text">
+                    <input type="text" id="lastName">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>Address:</p>
-                    <input type="text">
+                    <input type="text" id="address">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>Apt/House #:</p>
-                    <input type="text">
+                    <input type="text" id="aptHouse">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>City:</p>
-                    <input type="text">
+                    <input type="text" id="city">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>State:</p>
-                    <input type="text">
+                    <input type="text" id="state">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>Zip Code:</p>
-                    <input type="text">
+                    <input type="text" id="zipCode" inputmode="numeric">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>Email:</p>
-                    <input type="email">
+                    <input type="email" id="email">
                 </div>
+
                 <div class="forminputwithtext">
                     <p>Phone Number:</p>
-                    <input type="tel">
+                    <input type="text" id="phoneNumber" inputmode="numeric" >
                 </div>
+
+
+                <button>Submit Info</button>
 
 
 
@@ -133,6 +140,48 @@
 
             $('.product-order-summary-div').html(summaryText);
         });
+
+
+        $(document).ready(function() {
+            function storeInputValues() {
+                var inputs = document.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"]');
+                inputs.forEach(function(input) {
+                    localStorage.setItem(input.id, input.value);
+                    console.log(`${input.id}: ${input.value}`);
+                });
+            }
+
+            $('button').click(function() {
+                storeInputValues();
+                alert('Input values stored in local storage.');
+            });
+        });
+
+        document.getElementById('zipCode').addEventListener('input', function(event) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        document.getElementById('phoneNumber').addEventListener('input', function(event) {
+            let formattedValue = this.value.replace(/\D/g, '');
+            if (formattedValue.length > 1) {
+                formattedValue = formattedValue.slice(0, 1) + '-' + formattedValue.slice(1);
+            }
+            if (formattedValue.length > 5) {
+                formattedValue = formattedValue.slice(0, 5) + '-' + formattedValue.slice(5);
+            }
+            formattedValue = formattedValue.slice(0, 10);
+            this.value = formattedValue;
+        });
+
+
+
+
+
+
+
+
+
+
     </script>
 
 
