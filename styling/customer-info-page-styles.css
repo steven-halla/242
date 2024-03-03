@@ -101,6 +101,8 @@
     display: flex;
     background-color: red;
     flex-direction: column;
+    margin-bottom: 1px;
+
 
     height: 100%;
     width: 50%;
@@ -131,8 +133,28 @@
 
 
 
+.forminputwithtext {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10%;
+    background-color: red;
+    height: 6%;
+    margin-right: 10%;
+}
 
+.forminputwithtext p {
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
+.forminputwithtext input {
+    margin-left: auto;
+    height: 80%;
+    width: 40%;
+}
 
 
 

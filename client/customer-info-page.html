@@ -43,22 +43,55 @@
 
                 </div>
 
-                <div class="product-left-right-parent-div">
-                    <div class="product-left-display-div">
+                <div class="forminputwithtext">
+                    <p>Delivery information:  All Fields required</p>
+                </div>
 
-                    </div>
 
-                    <div class="product-right-display-div">
+                <div class="forminputwithtext">
+                    <p>First Name:</p>
+                    <input type="text">
+                </div>
 
-                    </div>
+
+                <div class="forminputwithtext">
+                    <p>Last Name:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>Address:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>Apt/House #:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>City:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>State:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>Zip Code:</p>
+                    <input type="text">
+                </div>
+                <div class="forminputwithtext">
+                    <p>Email:</p>
+                    <input type="email">
+                </div>
+                <div class="forminputwithtext">
+                    <p>Phone Number:</p>
+                    <input type="tel">
                 </div>
 
 
 
+
+
             </div>
-
-
-
             <div class="image-right-side-div">
                 <p>I hold the image to the right </p>
             </div>
@@ -75,14 +108,34 @@
     </footer>
     <script>
         $(document).ready(function() {
-            var selectedGame = localStorage.getItem('selectedGame');
-            console.log('Selected game from localStorage:', selectedGame);
-            if (selectedGame) {
-                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
-            }
-        });
+            var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+            var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
 
+            var subtotal = 0;
+            var tax = 0;
+            var total = 0;
+            var summaryText = '';
+
+            if (selectedGame) {
+                subtotal = selectedGame.price || 0;
+                summaryText += 'Selected videogame: ' + selectedGame.name;
+            }
+
+            if (selectedProductOption) {
+                subtotal += selectedProductOption.price || 0;
+                summaryText += ' with ' + selectedProductOption.name;
+            }
+
+            tax = subtotal * 0.10;
+            total = subtotal + tax;
+
+            summaryText += '<br>Subtotal: $' + subtotal.toFixed(2) + ', Tax: $' + tax.toFixed(2) + ', Total: $' + total.toFixed(2);
+
+            $('.product-order-summary-div').html(summaryText);
+        });
     </script>
+
+
 
 </div>
 </body>
