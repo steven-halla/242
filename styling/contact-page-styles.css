@@ -91,27 +91,82 @@
     width: 100%;
 }
 
-.product-left-right-div {
+.contact-info-parent-div {
     display: flex;
+    flex-direction: column;
     background-color: mediumspringgreen;
     height: 80%;
-    width: 100%;
+    width: 70%;
 }
 
-.product-left-info-p-div {
+
+.contact-first-name-div {
     display: flex;
-    background-color: red;
-    height: 100%;
+    flex-direction: row;
+    background-color: blue;
+    height: 10%;
     width: 100%;
+    justify-content: space-between;
 }
 
-
-.product-left-right-div {
+.contact-last-name-div {
     display: flex;
-    background-color: blueviolet;
-    height: 100%;
+    flex-direction: row;
+    background-color: blue;
+    height: 10%;
     width: 100%;
+    justify-content: space-between;
+
 }
+
+.contact-email-div {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    height: 10%;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.contact-phone-number-div {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    height: 10%;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.contact-message-textarea {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    height: 50%;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.contact-message-button-div {
+    display: flex;
+    background-color: blue;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+
+.contact-message-textarea p {
+    display: flex;
+    align-items: center;
+}
+
 
 
 
