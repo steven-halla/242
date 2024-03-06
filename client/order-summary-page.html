@@ -39,11 +39,12 @@
             </div>
             <div class="product-display-div">
                 <div class="product-thank-you-ordering-p-div">
-
+                    <p>Thank you for ordering from my game store</p>
+                    <p>All proceeds goes straight to my bank account.</p>
                 </div>
 
                 <div class="product-address-shipping-p-div">
-
+                        <p>Your order will be shipped to:</p>
                 </div>
 
                 <div class="product-add-ons-div">
@@ -51,6 +52,7 @@
                 </div>
 
                 <div class="product-img-div">
+                    <p id="deliveryCountdown"></p>
 
                 </div>
 
@@ -79,12 +81,200 @@
     </footer>
     <script>
         $(document).ready(function() {
+            $('#deliveryForm').submit(function(event) {
+                event.preventDefault();
+                var deliveryTimestamp = new Date().getTime() + (72 * 60 * 60 * 1000);
+                localStorage.setItem('deliveryTimestamp', deliveryTimestamp);
+                window.location.href = 'order-summary-page.html';
+            });
+
+            var countdownElement = $('.product-img-div');
+
+            var logInterval = 3;
+            var logCounter = 0;
+
+            var countdownInterval = setInterval(function() {
+                var deliveryTimestamp = parseInt(localStorage.getItem('deliveryTimestamp'));
+                var now = new Date().getTime();
+                var timeLeft = deliveryTimestamp - now;
+
+                if (timeLeft > 0) {
+                    var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    var countdownText = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                    countdownElement.text(countdownText);
+
+                    if (++logCounter >= logInterval) {
+                        console.log("Countdown: " + countdownText);
+                        logCounter = 0;
+                    }
+
+                } else {
+                    countdownElement.text("Delivery time has elapsed.");
+                    console.log("Delivery time has elapsed.");
+                    clearInterval(countdownInterval);
+                }
+            }, 20);
+        });
+
+
+        $(document).ready(function() {
+            function updateOrderDetails() {
+                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+
+                var gamePrice = selectedGame ? selectedGame.price : 0;
+                var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
+                var subtotal = gamePrice + optionPrice;
+                var tax = subtotal * 0.10;
+                var total = subtotal + tax;
+
+                // Update the price information
+                var priceInfo = 'Game Price: $' + gamePrice.toFixed(2);
+                priceInfo += '<br>Option Price: $' + optionPrice.toFixed(2);
+                priceInfo += '<br>Subtotal: $' + subtotal.toFixed(2);
+                priceInfo += '<br>Tax: $' + tax.toFixed(2);
+                priceInfo += '<br>Total: $' + total.toFixed(2);
+
+                $('.product-price-div').html(priceInfo);
+            }
+
+            // Call updateOrderDetails to update the page when it loads
+            updateOrderDetails();
+        });
+
+
+
+        $(document).ready(function() {
+            var firstName = localStorage.getItem('firstName');
+            var lastName = localStorage.getItem('lastName');
+            var address = localStorage.getItem('address');
+            var aptHouse = localStorage.getItem('aptHouse');
+            var city = localStorage.getItem('city');
+            var state = localStorage.getItem('state');
+            var zipCode = localStorage.getItem('zipCode');
+            var email = localStorage.getItem('email');
+            var phoneNumber = localStorage.getItem('phoneNumber');
+
+            var content = '<p>' + firstName + ' ' + lastName + '</p>' +
+                '<p>' + address + ', ' + aptHouse + '</p>' +
+                '<p>' + city + ', ' + state + ' ' + zipCode + '</p>' +
+                '<p>' + email + '</p>' +
+                '<p>' + phoneNumber + '</p>';
+
+            $('.product-address-shipping-p-div').html(content);
+        });
+
+
+
+        $(document).ready(function() {
             var selectedGame = localStorage.getItem('selectedGame');
             console.log('Selected game from localStorage:', selectedGame);
             if (selectedGame) {
                 $('.product-add-ons-div').text('Selected videogame: ' + selectedGame);
             }
         });
+
+
+        // $(document).ready(function() {
+        //     var deliveryTimestamp = localStorage.getItem('deliveryTimestamp');
+        //     console.log("Delivery Timestamp from localStorage:", deliveryTimestamp);
+        //
+        //     if (deliveryTimestamp) {
+        //         var countdown = new Date(parseInt(deliveryTimestamp)).toLocaleString();
+        //         console.log("Countdown Date:", countdown);
+        //         $('.product-img-div').html("Estimated delivery time: " + countdown);
+        //     } else {
+        //         console.log("No delivery timestamp found in localStorage.");
+        //     }
+        // });
+
+        // $(document).ready(function() {
+        //     $('#deliveryForm').submit(function(event) {
+        //         event.preventDefault();
+        //         var deliveryTimestamp = new Date().getTime() + (72 * 60 * 60 * 1000);
+        //         localStorage.setItem('deliveryTimestamp', deliveryTimestamp);
+        //         window.location.href = 'order-summary-page.html';
+        //     });
+        //
+        //     var countdownElement = $('.product-img-div');
+        //
+        //     var logInterval = 3;
+        //     var logCounter = 0;
+        //
+        //     var countdownInterval = setInterval(function() {
+        //         var deliveryTimestamp = parseInt(localStorage.getItem('deliveryTimestamp'));
+        //         var now = new Date().getTime();
+        //         var timeLeft = deliveryTimestamp - now;
+        //
+        //         if (timeLeft > 0) {
+        //             var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        //             var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        //             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        //
+        //             var countdownText = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        //             countdownElement.text(countdownText);
+        //
+        //             if (++logCounter >= logInterval) {
+        //                 console.log("Countdown: " + countdownText);
+        //                 logCounter = 0;
+        //             }
+        //
+        //         } else {
+        //             countdownElement.text("Delivery time has elapsed.");
+        //             console.log("Delivery time has elapsed.");
+        //             clearInterval(countdownInterval);
+        //         }
+        //     }, 1000);
+        // });
+
+        // $(document).ready(function() {
+        //     $('#deliveryForm').submit(function(event) {
+        //         event.preventDefault();
+        //         var deliveryTimestamp = new Date().getTime() + (72 * 60 * 60 * 1000);
+        //         localStorage.setItem('deliveryTimestamp', deliveryTimestamp);
+        //         window.location.href = 'order-summary-page.html';
+        //     });
+        //
+        //     var countdownElement = $('.product-img-div');
+        //
+        //     var logInterval = 3;
+        //     var logCounter = 0;
+        //
+        //     var countdownInterval = setInterval(function() {
+        //         var deliveryTimestamp = parseInt(localStorage.getItem('deliveryTimestamp'));
+        //         var now = new Date().getTime();
+        //         var timeLeft = deliveryTimestamp - now;
+        //
+        //         if (timeLeft > 0) {
+        //             var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        //             var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //             var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        //             var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        //
+        //             var countdownText = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        //             countdownElement.text(countdownText); // Update countdown text
+        //
+        //             if (++logCounter >= logInterval) {
+        //                 console.log("Countdown: " + countdownText);
+        //                 logCounter = 0; // Reset counter after logging
+        //             }
+        //
+        //         } else {
+        //             countdownElement.text("Delivery time has elapsed.");
+        //             console.log("Delivery time has elapsed.");
+        //             clearInterval(countdownInterval);
+        //         }
+        //     }, 1000);
+        // });
+
+
+
+
 
     </script>
 

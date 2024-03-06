@@ -95,8 +95,15 @@
 .product-address-shipping-p-div {
     display: flex;
     background-color: olivedrab;
-    height: 20%;
+    flex-direction: column;
+    height: 40%;
     width: 100%;
+    margin: 0;
+}
+
+.product-address-shipping-p-div p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .product-add-ons-div {

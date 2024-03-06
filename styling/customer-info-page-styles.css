@@ -80,7 +80,7 @@
 
 .product-order-summary-div {
     display: flex;
-    background-color: aliceblue;
+    background-color: magenta;
     flex-direction: column;
 
     height: 30%;

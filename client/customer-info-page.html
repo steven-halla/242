@@ -116,35 +116,22 @@
 
     </footer>
     <script>
+
+
+
+
         $(document).ready(function() {
-            var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-            var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
-
-            var subtotal = 0;
-            var tax = 0;
-            var total = 0;
-            var summaryText = '';
-
+            var selectedGame = localStorage.getItem('selectedGame');
+            console.log('Selected game from localStorage:', selectedGame);
             if (selectedGame) {
-                subtotal = selectedGame.price || 0;
-                summaryText += 'Selected videogame: ' + selectedGame.name;
+                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
             }
-
-            if (selectedProductOption) {
-                subtotal += selectedProductOption.price || 0;
-                summaryText += ' with ' + selectedProductOption.name;
-            }
-
-            tax = subtotal * 0.10;
-            total = subtotal + tax;
-
-            summaryText += '<br>Subtotal: $' + subtotal.toFixed(2) + ', Tax: $' + tax.toFixed(2) + ', Total: $' +
-                total.toFixed(2);
-
-            $('.product-order-summary-div').html(summaryText);
         });
-
-
+        //
+        //
+        //
+        //
+        //
         $(document).ready(function() {
             $('#deliveryForm').submit(function(event) {
                 event.preventDefault();
@@ -157,24 +144,14 @@
                 inputs.each(function() {
                     if (!$(this).val()) {
                         allFilled = false;
-                        return false;
-                    }
-
-                    if ($(this).attr('type') === 'email') {
-                        var email = $(this).val();
-                        var atPosition = email.indexOf('@');
-                        var dotPosition = email.lastIndexOf('.');
-                        if (atPosition < 1 || dotPosition < atPosition + 2 || dotPosition + 2 >= email.length) {
-                            emailValid = false;
-                            return false;
-                        }
+                        return false; // Exit the .each() loop early
                     }
 
                     if ($(this).attr('id') === 'zipCode') {
                         var zipCode = $(this).val();
                         if (zipCode.length !== 5 || !$.isNumeric(zipCode)) {
                             zipValid = false;
-                            return false;
+                            return false; // Exit the .each() loop early
                         }
                     }
 
@@ -182,7 +159,8 @@
                         var phoneNumber = $(this).val().replace(/[^0-9]/g, '');
                         if (phoneNumber.length !== 8) {
                             phoneValid = false;
-                            return false;
+                            return false; // Exit the .each() loop early
+                        }
                     }
                 });
 
@@ -190,8 +168,11 @@
                     inputs.each(function() {
                         localStorage.setItem(this.id, $(this).val());
                         console.log(`${this.id}: ${$(this).val()}`);
-
                     });
+                    var deliveryTimestamp = new Date().getTime() + (72 * 60 * 60 * 1000); // 72 hours from now
+                    localStorage.setItem('deliveryTimestamp', deliveryTimestamp);
+                    window.location.href = 'order-summary-page.html';
+
                     alert('Input values stored in local storage.');
                 } else {
                     if (!allFilled) {
@@ -207,17 +188,18 @@
             });
         });
 
-
-
-
+        //
+        //
+        //
+        //
         document.getElementById('zipCode').addEventListener('input', function(event) {
             this.value = this.value.replace(/\D/g, '');
             if (this.value.length > 5) {
                 this.value = this.value.slice(0, 5);
             }
         });
-
-
+        //
+        //
         document.getElementById('phoneNumber').addEventListener('input', function(event) {
             let formattedValue = this.value.replace(/\D/g, '');
             if (formattedValue.length > 1) {
@@ -229,14 +211,6 @@
             formattedValue = formattedValue.slice(0, 10);
             this.value = formattedValue;
         });
-
-
-
-
-
-
-
-
 
 
     </script>
