@@ -1,0 +1,62 @@
+.about-us-wrapper-div {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+}
+
+.about-us-about-div {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height: 30%;
+    width: 100%;
+}
+
+.about-us-mission-div {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    height: 30%;
+    width: 100%;
+}
+
+.main-content-parent-div {
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    height: 100%;
+    width: 60%;
+}
+
+.left-sidebar-nav-bar-div {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    height: 100%;
+    width: 20%;
+}
+
+
+.right-sidebar-div {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    height: 100%;
+    width: 20%;
+}
+
+
+.right-sidebar-div p {
+    line-height: 1.7;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+
+.right-sidebar-div h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
