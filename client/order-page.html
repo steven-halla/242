@@ -234,10 +234,6 @@
                 if (selectedProductOption) {
                     text += ` with ${selectedProductOption.name}`;
                 }
-                // if (selectedGame && selectedProductOption) {
-                //     var totalPrice = selectedGame.price + selectedProductOption.price;
-                //     text += ` - Price: $${totalPrice}`;
-                // }
 
                 $('.order-details-purchase-details-div').text(text);
             }
@@ -245,29 +241,6 @@
             updateOrderDetails();
         });
 
-
-        // $(document).ready(function() {
-        //     $('input[type="radio"][name="game"], input[type="radio"][name="productOption"]').change(function() {
-        //         updateOrderDetails();
-        //     });
-        //
-        //     function updateOrderDetails() {
-        //         var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
-        //         if (selectedGame || selectedProductOption) {
-        //             var gamePrice = selectedGame ? selectedGame.price : 0;
-        //             var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
-        //             var subtotal = gamePrice + optionPrice;
-        //             $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
-        //             var tax = subtotal * 0.10;
-        //             $('.tax').text('Tax: $' + tax.toFixed(2));
-        //             var total = subtotal + tax;
-        //             $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
-        //         }
-        //     }
-        //
-        //     updateOrderDetails();
-        // });
         $(document).ready(function() {
             $('input[type="radio"][name="game"], input[type="radio"][name="productOption"]').change(function() {
                 updateOrderDetails();
@@ -300,38 +273,6 @@
 
 
         //
-        // $(document).ready(function() {
-        //     $('input[type="radio"][name="game"]').change(function() {
-        //         var selectedGameValue = $(this).val();
-        //         var selectedGame = games.find(game => game.value === selectedGameValue);
-        //         localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
-        //         updateOrderDetails();
-        //     });
-        //
-        //     $('input[type="radio"][name="productOption"]').change(function() {
-        //         var selectedOptionValue = $(this).val();
-        //         var selectedProductOption = productOptions.find(option => option.price.toString() === selectedOptionValue);
-        //         localStorage.setItem('productOption', JSON.stringify(selectedProductOption));
-        //         updateOrderDetails();
-        //     });
-        //
-        //     function updateOrderDetails() {
-        //         var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
-        //         if (selectedGame && selectedProductOption) {
-        //             var gamePrice = selectedGame.price;
-        //             var optionPrice = selectedProductOption.price;
-        //             var subtotal = gamePrice + optionPrice;
-        //             $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
-        //             var tax = subtotal * 0.10;
-        //             $('.tax').text('Tax: $' + tax.toFixed(2));
-        //             var total = subtotal + tax;
-        //             $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
-        //         }
-        //     }
-        //
-        //     updateOrderDetails();
-        // });
 
 
         $(document).ready(function() {
