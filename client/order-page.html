@@ -10,9 +10,9 @@
 
     <script>
         const games = [
-            { name: "game1", value: "videogame1", price: 50 },
-            { name: "game2", value: "videogame2", price: 80 },
-            { name: "game3", value: "videogame3", price: 150 }
+            { name: "100in1", value: "videogame1", price: 50 , gameimage: "../images/game1.png" },
+            { name: "Fire Emblem", value: "videogame2", price: 80 , gameimage: "../images/game2.png" },
+            { name: "Duck Tails", value: "videogame3", price: 150, gameimage: "../images/game3.png" }
         ];
 
         const productOptions = [
@@ -30,7 +30,8 @@
     <header>
         <div class="header-parent-div">
             <div class="store-logo-image-div">
-                <p>I hold an image</p>
+                <img src="../images/sir_leopold_the_hedge_hog2.png" alt="hedge hog knight" width="385" height="230">
+
             </div>
             <div class="store-name-div">
                 <h1>Steven's Gaming Emporium</h1>
@@ -67,6 +68,8 @@
                         <input type="radio" name="game" value="videogame1" >
                         <p>game 1</p>
                         <p>$50</p>
+                        <img src="../images/game1.png" alt="game1" width="300" height="300">
+
 
                     </div>
 
@@ -74,6 +77,8 @@
                         <input type="radio" name="game" value="videogame2">
                         <p>game 2</p>
                         <p>$80</p>
+                        <img src="../images/game2.png" alt="game2" width="300" height="300">
+
 
 
                     </div>
@@ -82,6 +87,8 @@
                         <input type="radio" name="game" value="videogame3">
                         <p>game 3</p>
                         <p>$150</p>
+                        <img src="../images/game3.png" alt="game3" width="300" height="300">
+
 
 
                     </div>
@@ -119,15 +126,15 @@
                 </div>
 
                 <div class="order-details-purchase-details-div">
-<!--                    <p>I am what you bought</p>-->
                 </div>
 
                 <div class="order-details-product-img-div">
-                    <p>Im the image of what you bought</p>
+                    <img id="gameImage" src="" alt="Selected Game Image" width="300" height="300">
+
                 </div>
 
                 <div class="order-costs-details-div">
-                        <p class="subtotal" sub total</p>
+                        <p class="subtotal"> sub total</p>
                     <p class="tax">tax</p>
                         <p class="subtotalplustax">total</p>
                 </div>
@@ -140,7 +147,6 @@
 
         </div>
         <div>
-            <!--            <img src="../images/sir_leopold_the_hedge_hog2.png" alt="Store Logo" height="300" width="300">-->
 
         </div>
 
@@ -152,11 +158,25 @@
 
 
         $(document).ready(function() {
+            $('input[type="radio"][name="game"]').change(function() {
+                var selectedValue = $(this).val();
+                var selectedGame = games.find(game => game.value === selectedValue);
+                if (selectedGame && selectedGame.gameimage) {
+                    $('#gameImage').attr('src', selectedGame.gameimage);
+                }
+                // Keep other functionalities like setting localStorage here if necessary
+            });
+        });
+
+
+
+        $(document).ready(function() {
             localStorage.clear();
         });
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
+                console.log("hi there you")
                 var selectedValue = $(this).val();
                 var selectedGame = games.find(game => game.value === selectedValue);
                 localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
@@ -184,35 +204,13 @@
 
 
 
-        // $(document).ready(function() {
-        //     $('input[type="radio"][name="productOption"]').change(function() {
-        //         var selectedValue = $(this).val();
-        //         var selectedOption = productOptions.find(option => option.price.toString() === selectedValue);
-        //         localStorage.setItem('productOption', JSON.stringify(selectedOption));
-        //         console.log('Selected product option:', selectedOption);
-        //     });
-        //
-        //     $('#submitOrderButton').click(function() {
-        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
-        //
-        //         if (!selectedProductOption) {
-        //             alert('Please select a product option.');
-        //         } else {
-        //             window.location.href = 'customer-info-page.html';
-        //         }
-        //     });
-        // });
-
-
-
-
-
-
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
+
                 var selectedGameValue = $(this).val();
                 var selectedGame = games.find(game => game.value === selectedGameValue);
                 localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
+
                 updateOrderDetails();
             });
 
@@ -272,7 +270,7 @@
 
 
 
-        //
+
 
 
         $(document).ready(function() {
