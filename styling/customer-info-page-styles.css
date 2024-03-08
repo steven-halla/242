@@ -1,7 +1,7 @@
 .home-wrapper-div {
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    background-color: #8F8F8F;
     height: 100vh;
     width: 100vw;
 }
@@ -9,14 +9,14 @@
 .header-parent-div {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    background-color: #8F8F8F;
     height: 20vh;
     width: 100vw;
 }
 
 .store-logo-image-div {
     display: flex;
-    background-color: purple;
+    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -27,24 +27,32 @@
     justify-content: center;
 
 
-    background-color: brown;
+    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
+}
+
+
+.store-name-div h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 300%;
 }
 
 .address-title-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
+    /*background-color: pink;*/
     height: 20vh;
+    font-size: 24px;
+
     width: 20vw;
 }
 
 
 .main-content-parent-div {
     display: flex;
-    background-color: aqua;
+    background-color: #5A69A6;
     height: 70vh;
     width: 100vw;
 }
@@ -54,9 +62,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blueviolet;
-    height: 70vh;
-    width: 20vw;
+    background-color: #C2A020;
+
+    /*background-color: blueviolet;*/
+    height: 48vh;
+    width: 18.5vw;
+    font-size: 24px;
+    padding-top: 12%;
 }
 
 .left-side-nav-bar-div p {
@@ -71,7 +83,7 @@
 
 .product-display-parent-div {
     display: flex;
-    background-color: honeydew;
+    /*background-color: honeydew;*/
     flex-direction: column;
 
     height: 70vh;
@@ -96,7 +108,7 @@
 
 .product-order-summary-price-div {
     display: flex;
-    background-color: green;
+    /*background-color: green;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -108,7 +120,7 @@
 
 .product-left-right-parent-div {
     display: flex;
-    background-color: firebrick;
+    /*background-color: firebrick;*/
     flex-direction: row;
 
     height: 70%;
@@ -118,7 +130,7 @@
 
 .product-left-display-div {
     display: flex;
-    background-color: red;
+    /*background-color: red;*/
     flex-direction: column;
     margin-bottom: 1px;
 
@@ -129,7 +141,7 @@
 
 .product-right-display-div {
     display: flex;
-    background-color: blue;
+    /*background-color: blue;*/
     flex-direction: column;
 
     height: 100%;
@@ -145,9 +157,10 @@
 
 .image-right-side-div {
     display: flex;
-    background-color: sienna;
     height: 70vh;
     width: 20vw;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -157,7 +170,7 @@
     flex-direction: row;
     align-items: center;
     margin-left: 10%;
-    background-color: red;
+    /*background-color: red;*/
     height: 6%;
     margin-right: 10%;
 }
