@@ -171,6 +171,42 @@
     </footer>
     <script>
 
+        console.log("Current cookies:", document.cookie);
+        function deleteGameAndProductOptionCookies() {
+            var cookiesToDelete = ['selectedGame', 'productOption'];
+            var path = '/finalproject242/client';
+
+            cookiesToDelete.forEach(function(cookieName) {
+                var cookieValue = ";expires=Thu, 01 Jan 1970 00:00:00 GMT;path=" + path;
+                document.cookie = cookieName + "=" + cookieValue;
+                console.log("Cookie deleted: ", cookieName);
+            });
+        }
+
+        deleteGameAndProductOptionCookies();
+
+
+
+
+
+
+
+
+
+        $(document).ready(function() {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie.trim();
+                console.log("Deleting cookie: ", name); // Log the name of the cookie being deleted
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+        });
+
+
+
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
@@ -180,36 +216,52 @@
 
                 if (selectedGame && selectedGame.gameimage) {
                     gameImage.attr('src', selectedGame.gameimage);
-                    gameImage.show();  // Use .show() to set display back to default
+                    gameImage.show();
                 } else {
-                    gameImage.hide();  // Use .hide() to set display: none;
+                    gameImage.hide();
                 }
             });
         });
 
 
+        //
+        // $(document).ready(function() {
+        //     localStorage.clear();
+        // });
 
-        $(document).ready(function() {
-            localStorage.clear();
-        });
+        //this deletes our cookies
+        // $(document).ready(function() {
+        //     var cookies = document.cookie.split(";");
+        //
+        //     for (var i = 0; i < cookies.length; i++) {
+        //         var cookie = cookies[i];
+        //         var eqPos = cookie.indexOf("=");
+        //         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        //     }
+        // });
+
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
-                console.log("hi there you")
+                console.log("Game selection changed");
                 var selectedValue = $(this).val();
                 var selectedGame = games.find(game => game.value === selectedValue);
-                localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
+                document.cookie = 'selectedGame=' + encodeURIComponent(JSON.stringify(selectedGame));
+                console.log("Selected game cookie set");
             });
 
             $('input[type="radio"][name="productOption"]').change(function() {
+                console.log("Product option selection changed");
                 var selectedValue = $(this).val();
                 var selectedOption = productOptions.find(option => option.price.toString() === selectedValue);
-                localStorage.setItem('productOption', JSON.stringify(selectedOption));
+                document.cookie = 'productOption=' + encodeURIComponent(JSON.stringify(selectedOption));
+                console.log("Selected product option cookie set");
             });
 
             $('#submitOrderButton').click(function() {
-                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+                var selectedGame = JSON.parse(decodeURIComponent(getCookie('selectedGame')));
+                var selectedProductOption = JSON.parse(decodeURIComponent(getCookie('productOption')));
 
                 if (!selectedGame) {
                     alert('Please select a game.');
@@ -221,28 +273,49 @@
             });
         });
 
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
-
                 var selectedGameValue = $(this).val();
                 var selectedGame = games.find(game => game.value === selectedGameValue);
-                localStorage.setItem('selectedGame', JSON.stringify(selectedGame));
-
+                setCookie('selectedGame', JSON.stringify(selectedGame));
+                console.log('Selected game set:', selectedGame);
                 updateOrderDetails();
             });
 
             $('input[type="radio"][name="productOption"]').change(function() {
                 var selectedOptionValue = $(this).val();
                 var selectedProductOption = productOptions.find(option => option.price.toString() === selectedOptionValue);
-                localStorage.setItem('productOption', JSON.stringify(selectedProductOption));
+                setCookie('productOption', JSON.stringify(selectedProductOption));
+                console.log('Selected product option set:', selectedProductOption);
                 updateOrderDetails();
             });
 
             function updateOrderDetails() {
-                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+                var selectedGame = JSON.parse(getCookie('selectedGame') || 'null');
+                var selectedProductOption = JSON.parse(getCookie('productOption') || 'null');
 
                 var text = 'Selected videogame: ';
                 if (selectedGame) {
@@ -255,36 +328,86 @@
                 $('.order-details-purchase-details-div').text(text);
             }
 
-            updateOrderDetails();
-        });
+            function setCookie(name, value) {
+                document.cookie = `${name}=${encodeURIComponent(value)}`;
+            }
 
-        $(document).ready(function() {
-            $('input[type="radio"][name="game"], input[type="radio"][name="productOption"]').change(function() {
-                updateOrderDetails();
-            });
-
-            function updateOrderDetails() {
-                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
-                var gamePrice = selectedGame ? selectedGame.price : 0;
-                var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
-                var subtotal = gamePrice + optionPrice;
-                var tax = subtotal * 0.10;
-                var total = subtotal + tax;
-
-                if (!selectedGame && !selectedProductOption) {
-                    subtotal = 0;
-                    tax = 0;
-                    total = 0;
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
                 }
-
-                $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
-                $('.tax').text('Tax: $' + tax.toFixed(2));
-                $('.subtotalplustax').text(`Total: $` + total.toFixed(2));
+                return null;
             }
 
             updateOrderDetails();
         });
+
+
+
+
+
+        $(document).ready(function() {
+            $('input[type="radio"][name="game"]').change(function() {
+                var selectedGameValue = $(this).val();
+                var selectedGame = games.find(game => game.value === selectedGameValue);
+                setCookie('selectedGame', JSON.stringify(selectedGame));
+                updateOrderDetails();
+            });
+
+            $('input[type="radio"][name="productOption"]').change(function() {
+                var selectedOptionValue = $(this).val();
+                var selectedProductOption = productOptions.find(option => option.price.toString() === selectedOptionValue);
+                setCookie('productOption', JSON.stringify(selectedProductOption));
+                updateOrderDetails();
+            });
+
+            function updateOrderDetails() {
+                var selectedGame = getCookie('selectedGame') ? JSON.parse(getCookie('selectedGame')) : null;
+                var selectedProductOption = getCookie('productOption') ? JSON.parse(getCookie('productOption')) : null;
+                var gamePrice = selectedGame ? parseFloat(selectedGame.price) : 0;
+                var optionPrice = selectedProductOption ? parseFloat(selectedProductOption.price) : 0;
+
+                console.log("Game Price: ", gamePrice);
+                console.log("Option Price: ", optionPrice);
+
+                var subtotal = gamePrice + optionPrice;
+                console.log("Subtotal: ", subtotal);
+
+                var tax = subtotal * 0.10;
+                console.log("Tax: ", tax);
+
+                var total = subtotal + tax;
+                console.log("Total: ", total);
+
+                $('.subtotal').text('Subtotal: $' + subtotal.toFixed(2));
+                $('.tax').text('Tax: $' + tax.toFixed(2));
+                $('.subtotalplustax').text('Total: $' + total.toFixed(2));
+            }
+
+            function setCookie(name, value) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + (365 * 24 * 60 * 60 * 1000));
+                document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`;
+            }
+
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i].trim();
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+
+            updateOrderDetails();
+        });
+
+
 
 
 
