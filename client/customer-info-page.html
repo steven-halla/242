@@ -40,7 +40,12 @@
 
             <div class="product-display-parent-div">
                 <div class="product-order-summary-div">
+                    <p>Your current order summary</p>
 
+                </div>
+
+                <div class="product-order-summary-price-div">
+                    <p>Your current price</p>
                 </div>
 
                 <form id="deliveryForm">
@@ -91,8 +96,10 @@
                         <p>Phone Number:</p>
                         <input type="text" id="phoneNumber" name="phoneNumber" inputmode="numeric" required>
                     </div>
+                    <div class="button-div">
+                        <button type="submit">Submit Info</button>
 
-                    <button type="submit">Submit Info</button>
+                    </div>
                 </form>
 
 
@@ -116,17 +123,151 @@
 
     </footer>
     <script>
-
-
-
-
         $(document).ready(function() {
-            var selectedGame = localStorage.getItem('selectedGame');
-            console.log('Selected game from localStorage:', selectedGame);
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+
+            var selectedGame = getCookie('selectedGame');
+            var productOption = getCookie('productOption');
+            console.log('Selected game from cookie:', selectedGame);
+            console.log('Product option from cookie:', productOption);
+
+            var subtotal = 0;
+
             if (selectedGame) {
-                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
+                var selectedGameObj = JSON.parse(selectedGame);
+                subtotal += selectedGameObj.price;
+            }
+
+            if (productOption) {
+                var productOptionObj = JSON.parse(productOption);
+                subtotal += productOptionObj.price;
+            }
+
+            var tax = subtotal * 0.10; // 10% tax
+            var total = subtotal + tax;
+
+            $('.product-order-summary-price-div').html(`
+        <p>Your current price</p>
+        <p>Subtotal: $${subtotal.toFixed(2)}</p>
+        <p>Tax (10%): $${tax.toFixed(2)}</p>
+        <p>Total: $${total.toFixed(2)}</p>
+    `);
+        });
+        $(document).ready(function() {
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+
+            var selectedGame = getCookie('selectedGame');
+            var productOption = getCookie('productOption');
+            console.log('Selected game from cookie:', selectedGame);
+            console.log('Product option from cookie:', productOption);
+
+            if (selectedGame) {
+                var selectedGameObj = JSON.parse(selectedGame);
+                var gameInfo = 'Selected videogame: ' + selectedGameObj.name;
+                if (selectedGameObj.gameimage) {
+                    gameInfo += '<br><img src="' + selectedGameObj.gameimage + '" alt="' + selectedGameObj.name + '" style="width:100px;height:auto;">';
+                }
+
+                if (productOption) {
+                    var productOptionObj = JSON.parse(productOption);
+                    gameInfo += ', With product option: ' + productOptionObj.name;
+                }
+
+                $('.product-order-summary-div').html(gameInfo);
+            } else if (productOption) {
+                // If only the product option is selected
+                var productOptionObj = JSON.parse(productOption);
+                $('.product-order-summary-div').text('With product option: ' + productOptionObj.name);
+            } else {
+                $('.product-order-summary-div').text('No game or product option selected');
             }
         });
+
+
+        //
+        // $(document).ready(function() {
+        //     function getCookie(name) {
+        //         var nameEQ = name + "=";
+        //         var ca = document.cookie.split(';');
+        //         for(var i = 0; i < ca.length; i++) {
+        //             var c = ca[i];
+        //             while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+        //             if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        //         }
+        //         return null;
+        //     }
+        //
+        //     var selectedGame = getCookie('selectedGame');
+        //     var productOption = getCookie('productOption');
+        //     console.log('Selected game from cookie:', selectedGame);
+        //     console.log('Product option from cookie:', productOption);
+        //
+        //     if (selectedGame && productOption) {
+        //         // Assuming the values are stored as JSON strings, parse them
+        //         var selectedGameObj = JSON.parse(selectedGame);
+        //         var productOptionObj = JSON.parse(productOption);
+        //
+        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name + ', With product option: ' + productOptionObj.name);
+        //     } else if (selectedGame) {
+        //         // If only the game is selected
+        //         var selectedGameObj = JSON.parse(selectedGame);
+        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name);
+        //     } else if (productOption) {
+        //         // If only the product option is selected
+        //         var productOptionObj = JSON.parse(productOption);
+        //         $('.product-order-summary-div').text('With product option: ' + productOptionObj.name);
+        //     }
+        // });
+
+
+        // $(document).ready(function() {
+        //     function getCookie(name) {
+        //         var nameEQ = name + "=";
+        //         var ca = document.cookie.split(';');
+        //         for(var i=0; i < ca.length; i++) {
+        //             var c = ca[i];
+        //             while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+        //             if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        //         }
+        //         return null;
+        //     }
+        //
+        //     var selectedGame = getCookie('selectedGame');
+        //     console.log('Selected game from cookie:', selectedGame);
+        //
+        //     if (selectedGame) {
+        //         // Assuming the selectedGame is stored as a JSON string, parse it to get the object
+        //         var selectedGameObj = JSON.parse(selectedGame);
+        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name);
+        //     }
+        // });
+
+
+//        $(document).ready(function() {
+//            var selectedGame = localStorage.getItem('selectedGame');
+//            console.log('Selected game from localStorage:', selectedGame);
+//            if (selectedGame) {
+//                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
+//            }
+//        });
         //
         //
         //
