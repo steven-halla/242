@@ -181,15 +181,50 @@
         // });
 
 
+        // $(document).ready(function() {
+        //     function updateOrderDetails() {
+        //         var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
+        //         var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+        //
+        //         var gamePrice = selectedGame ? selectedGame.price : 0;
+        //         var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
+        //         var subtotal = gamePrice + optionPrice;
+        //         var tax = subtotal * 0.10;
+        //         var total = subtotal + tax;
+        //
+        //         // Update the price information
+        //         var priceInfo = 'Game Price: $' + gamePrice.toFixed(2);
+        //         priceInfo += '<br>Option Price: $' + optionPrice.toFixed(2);
+        //         priceInfo += '<br>Subtotal: $' + subtotal.toFixed(2);
+        //         priceInfo += '<br>Tax: $' + tax.toFixed(2);
+        //         priceInfo += '<br>Total: $' + total.toFixed(2);
+        //
+        //         $('.product-price-div').html(priceInfo);
+        //     }
+        //
+        //     // Call updateOrderDetails to update the page when it loads
+        //     updateOrderDetails();
+        // });
         $(document).ready(function() {
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+
             function updateOrderDetails() {
-                var selectedGame = JSON.parse(localStorage.getItem('selectedGame'));
-                var selectedProductOption = JSON.parse(localStorage.getItem('productOption'));
+                var selectedGame = getCookie('selectedGame') ? JSON.parse(getCookie('selectedGame')) : null;
+                var selectedProductOption = getCookie('productOption') ? JSON.parse(getCookie('productOption')) : null;
 
                 var gamePrice = selectedGame ? selectedGame.price : 0;
                 var optionPrice = selectedProductOption ? selectedProductOption.price : 0;
                 var subtotal = gamePrice + optionPrice;
-                var tax = subtotal * 0.10;
+                var tax = subtotal * 0.10; // 10% tax
                 var total = subtotal + tax;
 
                 // Update the price information
