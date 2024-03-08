@@ -111,21 +111,43 @@
 
 .product-select-left-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: red;
     height: 100%;
     width: 33%;
-    align-items: flex-start;
-    justify-content: flex-start;
+
 }
 
-.product-select-left-div p {
-    margin-left: 5%;
+.radio-p-tag-left-div {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    height: 20%;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 28%;
+
+}
+
+.img-left-div {
+    display: flex;
+    padding-left: 12%;
+
+    height: 80%;
+    width: 33%;
+    bottom: 0;
+}
+
+
+.radio-p-tag-left-div p {
+    margin-left: 15%;
     margin-top: 0;
 }
 
-.product-select-left-div input {
-    margin-top: 1.5%;
+.radio-p-tag-left-div input {
+    margin-bottom: 11.5%;
+
 }
 
 
@@ -133,41 +155,85 @@
 
 .product-select-middle-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: yellowgreen;
     height: 100%;
     width: 33%;
-    align-items: flex-start;
-    justify-content: flex-start;
 }
 
-.product-select-middle-div p {
-    margin-left: 5%;
+.radio-p-tag-middle-div {
+    display: flex;
+    flex-direction: row;
+    background-color: yellowgreen;
+    height: 20%;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 28%;
+
+}
+
+.img-middle-div {
+    display: flex;
+    padding-left: 12%;
+
+    height: 80%;
+    width: 33%;
+    bottom: 0;
+}
+
+
+.radio-p-tag-middle-div p {
+    margin-left: 15%;
     margin-top: 0;
 }
 
-.product-select-middle-div input {
-    margin-top: 1.5%;
+.radio-p-tag-middle-div input {
+    margin-bottom: 11.5%;
+
 }
 
 .product-select-right-div {
+
+    background-color: lightseagreen;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 33%;
+}
+
+.radio-p-tag-right-div {
     display: flex;
     flex-direction: row;
     background-color: lightseagreen;
-    height: 100%;
-    width: 34%;
-    align-items: flex-start;
-    justify-content: flex-start;
+    height: 20%;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 28%;
+
 }
 
-.product-select-right-div p {
-    margin-left: 5%;
+.img-right-div {
+    display: flex;
+    padding-left: 15%;
+
+    height: 80%;
+    width: 33%;
+    bottom: 0;
+}
+
+
+.radio-p-tag-right-div p {
+    margin-left: 15%;
     margin-top: 0;
 }
 
-.product-select-right-div input {
-    margin-top: 1.5%;
+.radio-p-tag-right-div input {
+    margin-bottom: 11.5%;
+
 }
+
 
 
 
@@ -191,6 +257,9 @@
     background-color: lightcoral;
     height: 100%;
     width: 60vw;
+    font-size: 32px;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-add-on-radio-div {
@@ -199,7 +268,10 @@
 
     background-color: lightpink;
     height: 100%;
+    font-size: 24px;
     width: 60vw;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -215,6 +287,14 @@
     height: 10%;
     width: 60vw;
 }
+
+
+.product-button-div button{
+    height: 80%;
+    width: 30%;
+    font-size: 24px;
+}
+
 
 
 
@@ -241,19 +321,21 @@
 .order-summary-p-div {
     display: flex;
     background-color: red;
-    height: 70vh;
+    height: 10%;
     width: 20vw;
     font-size: 300%;
-
+    justify-content: center;
+    align-items: center;
 }
 
 
 .order-details-purchase-details-div {
     display: flex;
     background-color: lightgrey;
-    height: 70vh;
+    height: 20vh;
     width: 20vw;
     font-size: 200%;
+
 
 }
 
@@ -261,7 +343,7 @@
 .order-details-product-img-div {
     display: flex;
     background-color: navajowhite;
-    height: 70vh;
+    height: 40%;
     width: 20vw;
     margin-left: 30%;
 }
@@ -273,8 +355,10 @@
     justify-content: center;
     align-items: center;
     background-color: burlywood;
-    height: 70vh;
+    height: 30%;
     width: 20vw;
+    font-size: 24px;
+
 }
 
 
@@ -283,9 +367,11 @@
     justify-content: center;
     align-items: center;
     background-color: oldlace;
-    height: 70vh;
+    height: 10vh;
     width: 15vw;
     text-align: center;
+    font-size: 140%;
+
 }
 
 .order-personal-details-p-div p {

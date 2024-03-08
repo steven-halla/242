@@ -65,31 +65,44 @@
 
                 <div class="product-select-parent-div">
                     <div class="product-select-left-div">
-                        <input type="radio" name="game" value="videogame1" >
-                        <p>game 1</p>
-                        <p>$50</p>
-                        <img src="../images/game1.png" alt="game1" width="300" height="300">
+                        <div class="radio-p-tag-left-div">
+                            <input type="radio" name="game" value="videogame1" >
+                            <p>game 1</p>
+                            <p>$50</p>
+                        </div>
+                        <div class="img-left-div">
+                            <img src="../images/game1.png" alt="game1" width="300" height="300">
+
+                        </div>
 
 
                     </div>
 
                     <div class="product-select-middle-div">
-                        <input type="radio" name="game" value="videogame2">
-                        <p>game 2</p>
-                        <p>$80</p>
-                        <img src="../images/game2.png" alt="game2" width="300" height="300">
+                        <div class="radio-p-tag-middle-div">
+                            <input type="radio" name="game" value="videogame2">
+                            <p>game 2</p>
+                            <p>$80</p>
+                        </div>
+                        <div class="img-middle-div">
+                            <img src="../images/game2.png" alt="game2" width="300" height="300">
+
+                        </div>
+
 
 
 
                     </div>
 
                     <div class="product-select-right-div">
-                        <input type="radio" name="game" value="videogame3">
-                        <p>game 3</p>
-                        <p>$150</p>
-                        <img src="../images/game3.png" alt="game3" width="300" height="300">
-
-
+                        <div class="radio-p-tag-right-div">
+                            <input type="radio" name="game" value="videogame3">
+                            <p>game 3</p>
+                            <p>$150</p>
+                        </div>
+                        <div class="img-right-div">
+                            <img src="../images/game3.png" alt="game3" width="300" height="300">
+                        </div>
 
                     </div>
 
@@ -122,14 +135,14 @@
             </div>
             <div class="order-details-parent-div">
                 <div class="order-summary-p-div">
-                    <p>order summary</p>
+                    <p>Order Summary</p>
                 </div>
 
                 <div class="order-details-purchase-details-div">
                 </div>
 
                 <div class="order-details-product-img-div">
-                    <img id="gameImage" src="" alt="Selected Game Image" width="300" height="300">
+                    <img id="gameImage" src="" alt="Selected Game Image" width="300" height="300"  style="display: none;">
 
                 </div>
 
@@ -140,7 +153,7 @@
                 </div>
 
                 <div class="order-personal-details-p-div">
-                        <p>personal details will be listed on next page</p>
+                        <p>Personal details will be listed on next page.</p>
                 </div>
 
             </div>
@@ -161,10 +174,14 @@
             $('input[type="radio"][name="game"]').change(function() {
                 var selectedValue = $(this).val();
                 var selectedGame = games.find(game => game.value === selectedValue);
+                var gameImage = $('#gameImage');
+
                 if (selectedGame && selectedGame.gameimage) {
-                    $('#gameImage').attr('src', selectedGame.gameimage);
+                    gameImage.attr('src', selectedGame.gameimage);
+                    gameImage.show();  // Use .show() to set display back to default
+                } else {
+                    gameImage.hide();  // Use .hide() to set display: none;
                 }
-                // Keep other functionalities like setting localStorage here if necessary
             });
         });
 
