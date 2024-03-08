@@ -1,25 +1,29 @@
 .home-wrapper-div {
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
     box-sizing: border-box;
+    background-color: #8F8F8F;
+
 }
 
 .header-parent-div {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    /*background-color: red;*/
     height: 20vh;
     width: 100vw;
+    background-color: #8F8F8F;
+
 }
 
 .store-logo-image-div {
     display: flex;
-    background-color: purple;
+    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -30,7 +34,7 @@
     justify-content: center;
 
 
-    background-color: brown;
+    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
 }
@@ -44,7 +48,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
+    /*background-color: pink;*/
     height: 20vh;
     font-size: 24px;
     width: 20vw;
@@ -53,8 +57,10 @@
 
 .main-content-parent-div {
     display: flex;
-    background-color: aqua;
+    /*background-color: aqua;*/
     height: 70vh;
+    background-color: #5A69A6;
+
     width: 100vw;
 }
 
@@ -63,13 +69,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #C2A020;
+    /*background-color: #C2A020;*/
 
     /*background-color: blueviolet;*/
     height: 48vh;
-    width: 20vw;
+    width: 18.5vw;
     font-size: 24px;
     padding-top: 12%;
+    background-color: #C2A020;
+
 
 }
 
@@ -90,21 +98,21 @@
 .product-display-div {
     display: flex;
     flex-direction: column;
-    background-color: honeydew;
+    /*background-color: honeydew;*/
     height: 70vh;
     width: 60vw;
 }
 
 .product-select-p-div {
     display: flex;
-    background-color: green;
+    /*background-color: green;*/
     height: 10%;
     width: 60vw;
 }
 
 .product-select-parent-div {
     display: flex;
-    background-color: mediumpurple;
+    /*background-color: mediumpurple;*/
     height: 60%;
     width: 60vw;
 }
@@ -112,7 +120,7 @@
 .product-select-left-div {
     display: flex;
     flex-direction: column;
-    background-color: red;
+    /*background-color: red;*/
     height: 100%;
     width: 33%;
 
@@ -121,7 +129,7 @@
 .radio-p-tag-left-div {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    /*background-color: red;*/
     height: 20%;
     width: 33%;
     justify-content: center;
@@ -156,7 +164,7 @@
 .product-select-middle-div {
     display: flex;
     flex-direction: column;
-    background-color: yellowgreen;
+    /*background-color: yellowgreen;*/
     height: 100%;
     width: 33%;
 }
@@ -164,7 +172,7 @@
 .radio-p-tag-middle-div {
     display: flex;
     flex-direction: row;
-    background-color: yellowgreen;
+    /*background-color: yellowgreen;*/
     height: 20%;
     width: 33%;
     justify-content: center;
@@ -195,7 +203,7 @@
 
 .product-select-right-div {
 
-    background-color: lightseagreen;
+    /*background-color: lightseagreen;*/
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -205,7 +213,7 @@
 .radio-p-tag-right-div {
     display: flex;
     flex-direction: row;
-    background-color: lightseagreen;
+    /*background-color: lightseagreen;*/
     height: 20%;
     width: 33%;
     justify-content: center;
@@ -247,14 +255,13 @@
 .product-add-on-parent-div {
     display: flex;
     flex-direction: row;
-    background-color: lightblue;
+    /*background-color: lightblue;*/
     height: 20%;
     width: 60vw;
 }
 
 .product-add-on-p-div {
     display: flex;
-    background-color: lightcoral;
     height: 100%;
     width: 60vw;
     font-size: 32px;
@@ -266,7 +273,7 @@
     display: flex;
     flex-direction: column;
 
-    background-color: lightpink;
+    /*background-color: lightpink;*/
     height: 100%;
     font-size: 24px;
     width: 60vw;
@@ -281,7 +288,7 @@
 
 .product-button-div {
     display: flex;
-    background-color: lightsalmon;
+    /*background-color: lightsalmon;*/
     align-items: center;
     justify-content: center;
     height: 10%;
@@ -296,19 +303,10 @@
 }
 
 
-
-
-
-
-
-
-
-
-
 .order-details-parent-div {
     display: flex;
 
-    background-color: sienna;
+    /*background-color: sienna;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -320,7 +318,7 @@
 
 .order-summary-p-div {
     display: flex;
-    background-color: red;
+    /*background-color: red;*/
     height: 10%;
     width: 20vw;
     font-size: 300%;
@@ -331,9 +329,10 @@
 
 .order-details-purchase-details-div {
     display: flex;
-    background-color: lightgrey;
+    /*background-color: lightgrey;*/
     height: 20vh;
-    width: 20vw;
+    width: 15vw;
+    margin-left: 15%;
     font-size: 200%;
 
 
@@ -342,7 +341,7 @@
 
 .order-details-product-img-div {
     display: flex;
-    background-color: navajowhite;
+    /*background-color: navajowhite;*/
     height: 40%;
     width: 20vw;
     margin-left: 30%;
@@ -354,7 +353,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: burlywood;
+    /*background-color: burlywood;*/
     height: 30%;
     width: 20vw;
     font-size: 24px;
@@ -366,7 +365,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: oldlace;
+    /*background-color: oldlace;*/
     height: 10vh;
     width: 15vw;
     text-align: center;
