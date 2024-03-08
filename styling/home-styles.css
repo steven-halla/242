@@ -39,6 +39,8 @@
     background-color: pink;
     height: 20vh;
     width: 20vw;
+    font-size: 24px;
+
 }
 
 
@@ -57,6 +59,8 @@
     background-color: blueviolet;
     height: 70vh;
     width: 20vw;
+    font-size: 24px;
+
 }
 
 .left-side-nav-bar-div p {
@@ -71,9 +75,12 @@
 
 .product-display-div {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: honeydew;
     height: 70vh;
     width: 60vw;
+    margin-top: 10%;
 }
 
 
