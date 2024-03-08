@@ -243,35 +243,103 @@
 
 
 
+        // $(document).ready(function() {
+        //     var firstName = localStorage.getItem('firstName');
+        //     var lastName = localStorage.getItem('lastName');
+        //     var address = localStorage.getItem('address');
+        //     var aptHouse = localStorage.getItem('aptHouse');
+        //     var city = localStorage.getItem('city');
+        //     var state = localStorage.getItem('state');
+        //     var zipCode = localStorage.getItem('zipCode');
+        //     var email = localStorage.getItem('email');
+        //     var phoneNumber = localStorage.getItem('phoneNumber');
+        //
+        //     var content = '<p>' + firstName + ' ' + lastName + '</p>' +
+        //         '<p>' + address + ', ' + aptHouse + '</p>' +
+        //         '<p>' + city + ', ' + state + ' ' + zipCode + '</p>' +
+        //         '<p>' + email + '</p>' +
+        //         '<p>' + phoneNumber + '</p>';
+        //
+        //     $('.product-address-shipping-p-div').html(content);
+        // });
         $(document).ready(function() {
-            var firstName = localStorage.getItem('firstName');
-            var lastName = localStorage.getItem('lastName');
-            var address = localStorage.getItem('address');
-            var aptHouse = localStorage.getItem('aptHouse');
-            var city = localStorage.getItem('city');
-            var state = localStorage.getItem('state');
-            var zipCode = localStorage.getItem('zipCode');
-            var email = localStorage.getItem('email');
-            var phoneNumber = localStorage.getItem('phoneNumber');
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
 
-            var content = '<p>' + firstName + ' ' + lastName + '</p>' +
-                '<p>' + address + ', ' + aptHouse + '</p>' +
-                '<p>' + city + ', ' + state + ' ' + zipCode + '</p>' +
-                '<p>' + email + '</p>' +
-                '<p>' + phoneNumber + '</p>';
+            var firstName = getCookie('firstName');
+            var lastName = getCookie('lastName');
+            var address = getCookie('address');
+            var aptHouse = getCookie('aptHouse');
+            var city = getCookie('city');
+            var state = getCookie('state');
+            var zipCode = getCookie('zipCode');
+            var email = getCookie('email');
+            var phoneNumber = getCookie('phoneNumber');
+
+            var content = '<p>' + (firstName ? firstName : '') + ' ' + (lastName ? lastName : '') + '</p>' +
+                '<p>' + (address ? address : '') + ', ' + (aptHouse ? aptHouse : '') + '</p>' +
+                '<p>' + (city ? city : '') + ', ' + (state ? state : '') + ' ' + (zipCode ? zipCode : '') + '</p>' +
+                '<p>' + (email ? email : '') + '</p>' +
+                '<p>' + (phoneNumber ? phoneNumber : '') + '</p>';
 
             $('.product-address-shipping-p-div').html(content);
         });
 
-
-
         $(document).ready(function() {
-            var selectedGame = localStorage.getItem('selectedGame');
-            console.log('Selected game from localStorage:', selectedGame);
-            if (selectedGame) {
-                $('.product-add-ons-div').text('Selected videogame: ' + selectedGame);
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
             }
+
+            var selectedGame = getCookie('selectedGame');
+            var productOption = getCookie('productOption');
+
+            console.log('Selected game from cookie:', selectedGame);
+            console.log('Product option from cookie:', productOption);
+
+            var content = '';
+
+            if (selectedGame) {
+                var selectedGameObj = JSON.parse(selectedGame);
+                content += '<p>Selected videogame: ' + selectedGameObj.name + '</p>';
+                if (selectedGameObj.gameimage) {
+                    content += '<img src="' + selectedGameObj.gameimage + '" alt="' + selectedGameObj.name + '" style="width:100px;height:auto;"><br>';
+                }
+            }
+
+            if (productOption) {
+                var productOptionObj = JSON.parse(productOption);
+                content += '<p>Selected product option: ' + productOptionObj.name + '</p>';
+            }
+
+            $('.product-add-ons-div').html(content);
         });
+
+
+
+
+
+        // $(document).ready(function() {
+        //     var selectedGame = localStorage.getItem('selectedGame');
+        //     console.log('Selected game from localStorage:', selectedGame);
+        //     if (selectedGame) {
+        //         $('.product-add-ons-div').text('Selected videogame: ' + selectedGame);
+        //     }
+        // });
 
 
         // $(document).ready(function() {
