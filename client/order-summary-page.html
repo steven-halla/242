@@ -14,7 +14,7 @@
     <header>
         <div class="header-parent-div">
             <div class="store-logo-image-div">
-                <p>I hold an image</p>
+                <img src="../images/sir_leopold_the_hedge_hog2.png" alt="hedge hog knight" width="385" height="230">
             </div>
             <div class="store-name-div">
                 <h1>Steven's Gaming Emporium</h1>
@@ -40,7 +40,7 @@
             <div class="product-display-div">
                 <div class="product-thank-you-ordering-p-div">
                     <p>Thank you for ordering from my game store</p>
-                    <p>All proceeds goes straight to my bank account.</p>
+                    <p>5% of proceeds goes to the charity of my choice</p>
                 </div>
 
                 <div class="product-address-shipping-p-div">
@@ -52,7 +52,11 @@
                 </div>
 
                 <div class="product-img-div">
-                    <p id="deliveryCountdown"></p>
+                    <p>Your package will arrive in:</p>
+                    <div class="product-img-timer-div">
+                        <p id="deliveryCountdown"></p>
+
+                    </div>
 
                 </div>
 
@@ -66,7 +70,7 @@
 
 
             <div class="image-right-side-div">
-                <p>I hold the image to the right </p>
+                <img src="../images/sir_leopold_the_hedge_hog.png" alt="hedge hog king" width="333" height="400">
             </div>
 
         </div>
@@ -109,7 +113,7 @@
                 window.location.href = 'order-summary-page.html';
             });
 
-            var countdownElement = $('.product-img-div');
+            var countdownElement = $('.product-img-timer-div');
             var logInterval = 3;
             var logCounter = 0;
 
