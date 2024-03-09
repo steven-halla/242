@@ -1,7 +1,7 @@
 .home-wrapper-div {
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    background-color: #8F8F8F;
     height: 100vh;
     width: 100vw;
 }
@@ -9,14 +9,14 @@
 .header-parent-div {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    background-color: #8F8F8F;
     height: 20vh;
     width: 100vw;
 }
 
 .store-logo-image-div {
     display: flex;
-    background-color: purple;
+    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -27,24 +27,32 @@
     justify-content: center;
 
 
-    background-color: brown;
+    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
 }
+
+.store-name-div h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 300%;
+}
+
 
 .address-title-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
+    /*background-color: pink;*/
     height: 20vh;
     width: 20vw;
+    font-size: 24px;
+
 }
 
 
 .main-content-parent-div {
     display: flex;
-    background-color: aqua;
+    background-color: #5A69A6;
     height: 70vh;
     width: 100vw;
 }
@@ -54,9 +62,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blueviolet;
-    height: 70vh;
+    background-color: #C2A020;
+
+    /*background-color: blueviolet;*/
+    height: 48vh;
     width: 20vw;
+    font-size: 24px;
+    padding-top: 12%;
 }
 
 .left-side-nav-bar-div p {
@@ -72,38 +84,59 @@
 .product-display-div {
     display: flex;
     flex-direction: column;
-    background-color: honeydew;
+    /*background-color: honeydew;*/
     height: 70vh;
     width: 60vw;
 }
 
 .product-fill-out-form-p-div {
     display: flex;
-    background-color: red;
+    /*background-color: red;*/
     height: 10%;
     width: 100%;
+    font-size: 24px;
+
 }
 
 .product-customer-info-p-div {
     display: flex;
-    background-color: yellowgreen;
+    /*background-color: yellowgreen;*/
     height: 10%;
     width: 100%;
+    font-size: 24px;
 }
 
 .contact-info-parent-div {
     display: flex;
     flex-direction: column;
-    background-color: mediumspringgreen;
+    /*background-color: mediumspringgreen;*/
     height: 80%;
     width: 70%;
+
 }
+
+.contact-info-parent-div p {
+  font-size: 20px;
+
+}
+.contact-info-parent-div input  {
+    width: 300px;
+    margin: 10px;
+
+}
+
+.contact-info-parent-div textarea  {
+    width: 305px;
+    margin-right: 10px;
+
+}
+
 
 
 .contact-first-name-div {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -112,7 +145,7 @@
 .contact-last-name-div {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -122,7 +155,7 @@
 .contact-email-div {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -132,7 +165,7 @@
 .contact-phone-number-div {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -142,7 +175,7 @@
 .contact-message-textarea {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 50%;
     width: 100%;
     justify-content: space-between;
@@ -151,11 +184,19 @@
 
 .contact-message-button-div {
     display: flex;
-    background-color: blue;
+    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     align-items: center;
     justify-content: center;
+
+}
+
+.contact-message-button-div button{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 54%;
 
 }
 
@@ -181,9 +222,11 @@
 
 .image-right-side-div {
     display: flex;
-    background-color: sienna;
-    height: 70vh;
+    /*background-color: sienna;*/
+    height: 48vh;
     width: 20vw;
+    padding-top: 8%;
+    padding-left: 8%;
 }
 
 
