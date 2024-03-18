@@ -16,7 +16,6 @@
 
 .store-logo-image-div {
     display: flex;
-    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -25,13 +24,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
 }
-
 
 .store-name-div h1 {
     font-family: 'Times New Roman', Times, serif;
@@ -42,13 +37,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-color: pink;*/
     height: 20vh;
     font-size: 24px;
-
     width: 20vw;
 }
-
 
 .main-content-parent-div {
     display: flex;
@@ -57,14 +49,11 @@
     width: 100vw;
 }
 
-
 .left-side-nav-bar-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #C2A020;
-
-    /*background-color: blueviolet;*/
     height: 48vh;
     width: 18.5vw;
     font-size: 24px;
@@ -80,12 +69,9 @@
     color: inherit;
 }
 
-
 .product-display-parent-div {
     display: flex;
-    /*background-color: honeydew;*/
     flex-direction: column;
-
     height: 70vh;
     width: 60vw;
 }
@@ -96,19 +82,16 @@
 
 .product-order-summary-div {
     display: flex;
-    /*background-color: magenta;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-
     height: 30%;
     width: 100%;
 }
 
 .product-order-summary-price-div {
     display: flex;
-    /*background-color: green;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -120,9 +103,7 @@
 
 .product-left-right-parent-div {
     display: flex;
-    /*background-color: firebrick;*/
     flex-direction: row;
-
     height: 70%;
     width: 60vw;
 }
@@ -130,30 +111,18 @@
 
 .product-left-display-div {
     display: flex;
-    /*background-color: red;*/
     flex-direction: column;
     margin-bottom: 1px;
-
-
     height: 100%;
     width: 50%;
 }
 
 .product-right-display-div {
     display: flex;
-    /*background-color: blue;*/
     flex-direction: column;
-
     height: 100%;
     width: 50%;
 }
-
-
-
-
-
-
-
 
 .image-right-side-div {
     display: flex;
@@ -163,14 +132,11 @@
     align-items: center;
 }
 
-
-
 .forminputwithtext {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 10%;
-    /*background-color: red;*/
     height: 6%;
     margin-right: 10%;
 }
@@ -188,14 +154,11 @@
     width: 40%;
 }
 
-
-
 .button-div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 1%;
-    margin-top: 2%;
 }
 
 .button-div button {

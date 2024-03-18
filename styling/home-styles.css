@@ -15,12 +15,10 @@
     height: 20vh;
     width: 100vw;
     background-color: #8F8F8F;
-;
 }
 
 .store-logo-image-div {
     display: flex;
-    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -29,9 +27,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
 }
@@ -41,41 +36,32 @@
     font-size: 300%;
 }
 
-
 .address-title-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-color: pink;*/
     height: 20vh;
     width: 20vw;
     font-size: 24px;
-
 }
 
 
 .main-content-parent-div {
     background-color: #5A69A6;
-
     display: flex;
-    /*background-color: aqua;*/
     height: 70vh;
     width: 100vw;
 }
-
 
 .left-side-nav-bar-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #C2A020;
-
-    /*background-color: blueviolet;*/
     height: 48vh;
     width: 20vw;
     font-size: 24px;
     padding-top: 12%;
-
 }
 
 .left-side-nav-bar-div p {
@@ -87,22 +73,17 @@
     color: inherit;
 }
 
-
 .product-display-div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /*background-color: honeydew;*/
     height: 70vh;
     width: 60vw;
     margin-top: 10%;
 }
 
-
-
 .image-right-side-div {
     display: flex;
-    /*background-color: sienna;*/
     height: 48vh;
     width: 20vw;
     padding-top: 8%;

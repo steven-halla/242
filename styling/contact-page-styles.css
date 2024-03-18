@@ -16,7 +16,6 @@
 
 .store-logo-image-div {
     display: flex;
-    /*background-color: purple;*/
     height: 20vh;
     width: 20vw;
 }
@@ -25,9 +24,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    /*background-color: brown;*/
     height: 20vh;
     width: 60vw;
 }
@@ -37,18 +33,14 @@
     font-size: 300%;
 }
 
-
 .address-title-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-color: pink;*/
     height: 20vh;
     width: 20vw;
     font-size: 24px;
-
 }
-
 
 .main-content-parent-div {
     display: flex;
@@ -57,14 +49,11 @@
     width: 100vw;
 }
 
-
 .left-side-nav-bar-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #C2A020;
-
-    /*background-color: blueviolet;*/
     height: 48vh;
     width: 20vw;
     font-size: 24px;
@@ -80,27 +69,22 @@
     color: inherit;
 }
 
-
 .product-display-div {
     display: flex;
     flex-direction: column;
-    /*background-color: honeydew;*/
     height: 70vh;
     width: 60vw;
 }
 
 .product-fill-out-form-p-div {
     display: flex;
-    /*background-color: red;*/
     height: 10%;
     width: 100%;
     font-size: 24px;
-
 }
 
 .product-customer-info-p-div {
     display: flex;
-    /*background-color: yellowgreen;*/
     height: 10%;
     width: 100%;
     font-size: 24px;
@@ -109,16 +93,14 @@
 .contact-info-parent-div {
     display: flex;
     flex-direction: column;
-    /*background-color: mediumspringgreen;*/
     height: 80%;
     width: 70%;
-
 }
 
 .contact-info-parent-div p {
   font-size: 20px;
-
 }
+
 .contact-info-parent-div input  {
     width: 300px;
     margin: 10px;
@@ -131,12 +113,9 @@
 
 }
 
-
-
 .contact-first-name-div {
     display: flex;
     flex-direction: row;
-    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -145,7 +124,6 @@
 .contact-last-name-div {
     display: flex;
     flex-direction: row;
-    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
@@ -155,41 +133,33 @@
 .contact-email-div {
     display: flex;
     flex-direction: row;
-    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
-
 }
 
 .contact-phone-number-div {
     display: flex;
     flex-direction: row;
-    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     justify-content: space-between;
-
 }
 
 .contact-message-textarea {
     display: flex;
     flex-direction: row;
-    /*background-color: blue;*/
     height: 50%;
     width: 100%;
     justify-content: space-between;
-
 }
 
 .contact-message-button-div {
     display: flex;
-    /*background-color: blue;*/
     height: 10%;
     width: 100%;
     align-items: center;
     justify-content: center;
-
 }
 
 .contact-message-button-div button{
@@ -197,32 +167,15 @@
     height: 50px;
     font-size: 20px;
     margin-left: 54%;
-
 }
-
-
-
 
 .contact-message-textarea p {
     display: flex;
     align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .image-right-side-div {
     display: flex;
-    /*background-color: sienna;*/
     height: 48vh;
     width: 20vw;
     padding-top: 8%;
