@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../styling/customer-info-page-styles.css">
     <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 </head>
 <body>
 <div class="home-wrapper-div">
@@ -15,7 +14,6 @@
         <div class="header-parent-div">
             <div class="store-logo-image-div">
                 <img src="../images/sir_leopold_the_hedge_hog2.png" alt="hedge hog knight" width="385" height="230">
-
             </div>
             <div class="store-name-div">
                 <h1>Steven's Gaming Emporium</h1>
@@ -25,9 +23,7 @@
                 <p>Seattle, Wa, 98002</p>
                 <p>777.867.5309</p>
             </div>
-
         </div>
-
     </header>
     <nav>
     </nav>
@@ -38,17 +34,13 @@
                 <p>About</p>
                 <a href="contact-page.html"><p>Contact Us</p></a>
             </div>
-
             <div class="product-display-parent-div">
                 <div class="product-order-summary-div">
                     <p>Your current order summary</p>
-
                 </div>
-
                 <div class="product-order-summary-price-div">
                     <p>Your current price</p>
                 </div>
-
                 <form id="deliveryForm">
                     <div class="forminputwithtext">
                         <p>Delivery information: All Fields required</p>
@@ -57,71 +49,51 @@
                         <p>First Name:</p>
                         <input type="text" id="firstName" name="firstName" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Last Name:</p>
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Address:</p>
                         <input type="text" id="address" name="address" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Apt/House #:</p>
                         <input type="text" id="aptHouse" name="aptHouse" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>City:</p>
                         <input type="text" id="city" name="city" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>State:</p>
                         <input type="text" id="state" name="state" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Zip Code:</p>
                         <input type="text" id="zipCode" name="zipCode" inputmode="numeric" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Email:</p>
                         <input type="email" id="email" name="email" required>
                     </div>
-
                     <div class="forminputwithtext">
                         <p>Phone Number:</p>
                         <input type="text" id="phoneNumber" name="phoneNumber" inputmode="numeric" required>
                     </div>
                     <div class="button-div">
                         <button type="submit">Submit Info</button>
-
                     </div>
                 </form>
-
-
-
-
-
-
             </div>
             <div class="image-right-side-div">
                 <img src="../images/hedge_knight.png" alt="hedge hog knight" width="385" height="230">
             </div>
-
         </div>
         <div>
-            <!--            <img src="../images/sir_leopold_the_hedge_hog2.png" alt="Store Logo" height="300" width="300">-->
-
         </div>
-
     </main>
     <footer>
-
     </footer>
     <script>
         $(document).ready(function() {
@@ -153,7 +125,7 @@
                 subtotal += productOptionObj.price;
             }
 
-            var tax = subtotal * 0.10; // 10% tax
+            var tax = subtotal * 0.10;
             var total = subtotal + tax;
 
             $('.product-order-summary-price-div').html(`
@@ -163,6 +135,8 @@
         <p>Total: $${total.toFixed(2)}</p>
     `);
         });
+
+
         $(document).ready(function() {
             function getCookie(name) {
                 var nameEQ = name + "=";
@@ -174,27 +148,22 @@
                 }
                 return null;
             }
-
             var selectedGame = getCookie('selectedGame');
             var productOption = getCookie('productOption');
             console.log('Selected game from cookie:', selectedGame);
             console.log('Product option from cookie:', productOption);
-
             if (selectedGame) {
                 var selectedGameObj = JSON.parse(selectedGame);
                 var gameInfo = 'Selected videogame: ' + selectedGameObj.name;
                 if (selectedGameObj.gameimage) {
                     gameInfo += '<br><img src="' + selectedGameObj.gameimage + '" alt="' + selectedGameObj.name + '" style="width:100px;height:auto;">';
                 }
-
                 if (productOption) {
                     var productOptionObj = JSON.parse(productOption);
                     gameInfo += ', With product option: ' + productOptionObj.name;
                 }
-
                 $('.product-order-summary-div').html(gameInfo);
             } else if (productOption) {
-                // If only the product option is selected
                 var productOptionObj = JSON.parse(productOption);
                 $('.product-order-summary-div').text('With product option: ' + productOptionObj.name);
             } else {
@@ -210,30 +179,26 @@
                 var zipValid = true;
                 var phoneValid = true;
                 var inputs = $('input[type="text"], input[type="number"], input[type="email"], input[type="tel"]', this);
-
                 inputs.each(function() {
                     if (!$(this).val()) {
                         allFilled = false;
-                        return false; // Exit the .each() loop early
+                        return false;
                     }
-
                     if ($(this).attr('id') === 'zipCode') {
                         var zipCode = $(this).val();
                         if (zipCode.length !== 5 || !$.isNumeric(zipCode)) {
                             zipValid = false;
-                            return false; // Exit the .each() loop early
+                            return false;
                         }
                     }
-
                     if ($(this).attr('id') === 'phoneNumber') {
                         var phoneNumber = $(this).val().replace(/[^0-9]/g, '');
                         if (phoneNumber.length !== 8) {
                             phoneValid = false;
-                            return false; // Exit the .each() loop early
+                            return false;
                         }
                     }
                 });
-
                 if (allFilled && emailValid && zipValid && phoneValid) {
                     inputs.each(function() {
                         var cookieValue = encodeURIComponent($(this).val());
@@ -263,148 +228,12 @@
                 }
             });
         });
-
-
-
-        //
-        // $(document).ready(function() {
-        //     function getCookie(name) {
-        //         var nameEQ = name + "=";
-        //         var ca = document.cookie.split(';');
-        //         for(var i = 0; i < ca.length; i++) {
-        //             var c = ca[i];
-        //             while (c.charAt(0) == ' ') c = c.substring(1,c.length);
-        //             if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-        //         }
-        //         return null;
-        //     }
-        //
-        //     var selectedGame = getCookie('selectedGame');
-        //     var productOption = getCookie('productOption');
-        //     console.log('Selected game from cookie:', selectedGame);
-        //     console.log('Product option from cookie:', productOption);
-        //
-        //     if (selectedGame && productOption) {
-        //         // Assuming the values are stored as JSON strings, parse them
-        //         var selectedGameObj = JSON.parse(selectedGame);
-        //         var productOptionObj = JSON.parse(productOption);
-        //
-        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name + ', With product option: ' + productOptionObj.name);
-        //     } else if (selectedGame) {
-        //         // If only the game is selected
-        //         var selectedGameObj = JSON.parse(selectedGame);
-        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name);
-        //     } else if (productOption) {
-        //         // If only the product option is selected
-        //         var productOptionObj = JSON.parse(productOption);
-        //         $('.product-order-summary-div').text('With product option: ' + productOptionObj.name);
-        //     }
-        // });
-
-
-        // $(document).ready(function() {
-        //     function getCookie(name) {
-        //         var nameEQ = name + "=";
-        //         var ca = document.cookie.split(';');
-        //         for(var i=0; i < ca.length; i++) {
-        //             var c = ca[i];
-        //             while (c.charAt(0) == ' ') c = c.substring(1,c.length);
-        //             if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
-        //         }
-        //         return null;
-        //     }
-        //
-        //     var selectedGame = getCookie('selectedGame');
-        //     console.log('Selected game from cookie:', selectedGame);
-        //
-        //     if (selectedGame) {
-        //         // Assuming the selectedGame is stored as a JSON string, parse it to get the object
-        //         var selectedGameObj = JSON.parse(selectedGame);
-        //         $('.product-order-summary-div').text('Selected videogame: ' + selectedGameObj.name);
-        //     }
-        // });
-
-
-//        $(document).ready(function() {
-//            var selectedGame = localStorage.getItem('selectedGame');
-//            console.log('Selected game from localStorage:', selectedGame);
-//            if (selectedGame) {
-//                $('.product-order-summary-div').text('Selected videogame: ' + selectedGame);
-//            }
-//        });
-        //
-        //
-        //
-        //
-        //
-        // $(document).ready(function() {
-        //     $('#deliveryForm').submit(function(event) {
-        //         event.preventDefault();
-        //         var allFilled = true;
-        //         var emailValid = true;
-        //         var zipValid = true;
-        //         var phoneValid = true;
-        //         var inputs = $('input[type="text"], input[type="number"], input[type="email"], input[type="tel"]', this);
-        //
-        //         inputs.each(function() {
-        //             if (!$(this).val()) {
-        //                 allFilled = false;
-        //                 return false; // Exit the .each() loop early
-        //             }
-        //
-        //             if ($(this).attr('id') === 'zipCode') {
-        //                 var zipCode = $(this).val();
-        //                 if (zipCode.length !== 5 || !$.isNumeric(zipCode)) {
-        //                     zipValid = false;
-        //                     return false; // Exit the .each() loop early
-        //                 }
-        //             }
-        //
-        //             if ($(this).attr('id') === 'phoneNumber') {
-        //                 var phoneNumber = $(this).val().replace(/[^0-9]/g, '');
-        //                 if (phoneNumber.length !== 8) {
-        //                     phoneValid = false;
-        //                     return false; // Exit the .each() loop early
-        //                 }
-        //             }
-        //         });
-        //
-        //         if (allFilled && emailValid && zipValid && phoneValid) {
-        //             inputs.each(function() {
-        //                 localStorage.setItem(this.id, $(this).val());
-        //                 console.log(`${this.id}: ${$(this).val()}`);
-        //             });
-        //             var deliveryTimestamp = new Date().getTime() + (72 * 60 * 60 * 1000); // 72 hours from now
-        //             localStorage.setItem('deliveryTimestamp', deliveryTimestamp);
-        //             window.location.href = 'order-summary-page.html';
-        //
-        //             alert('Input values stored in local storage.');
-        //         } else {
-        //             if (!allFilled) {
-        //                 alert('All fields are required.');
-        //             } else if (!emailValid) {
-        //                 alert('Please enter a valid email address.');
-        //             } else if (!zipValid) {
-        //                 alert('Zip code must be exactly 5 digits.');
-        //             } else if (!phoneValid) {
-        //                 alert('Phone number must have exactly 8 digits.');
-        //             }
-        //         }
-        //     });
-        // });
-
-        //
-        //
-        //
-        //
         document.getElementById('zipCode').addEventListener('input', function(event) {
             this.value = this.value.replace(/\D/g, '');
             if (this.value.length > 5) {
                 this.value = this.value.slice(0, 5);
             }
         });
-        //
-        //
         document.getElementById('phoneNumber').addEventListener('input', function(event) {
             let formattedValue = this.value.replace(/\D/g, '');
             if (formattedValue.length > 1) {
@@ -416,12 +245,7 @@
             formattedValue = formattedValue.slice(0, 10);
             this.value = formattedValue;
         });
-
-
     </script>
-
-
-
 </div>
 </body>
 </html>

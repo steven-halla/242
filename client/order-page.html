@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../styling/order-page-styles.css">
     <script src="script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <script>
+
         const games = [
             { name: "100in1", value: "videogame1", price: 50 , gameimage: "../images/game1.png" },
             { name: "Fire Emblem", value: "videogame2", price: 80 , gameimage: "../images/game2.png" },
@@ -20,18 +20,14 @@
             { name: "booklet and case", price: 100 }
         ];
 
-
     </script>
-
 </head>
 <body>
-
 <div class="home-wrapper-div">
     <header>
         <div class="header-parent-div">
             <div class="store-logo-image-div">
                 <img src="../images/sir_leopold_the_hedge_hog2.png" alt="hedge hog knight" width="385" height="230">
-
             </div>
             <div class="store-name-div">
                 <h1>Steven's Gaming Emporium</h1>
@@ -41,28 +37,20 @@
                 <p>Seattle, Wa, 98002</p>
                 <p>777.867.5309</p>
             </div>
-
         </div>
-
     </header>
     <nav>
     </nav>
     <main>
-
         <div class="main-content-parent-div">
             <div class="left-side-nav-bar-div">
                 <a href="home.html"><p>Home</p></a>
                 <p>About Us</p>
                 <a href="contact-page.html"><p>Contact Us</p></a>
             </div>
-
-
-
             <div class="product-display-div">
                 <div class="product-select-p-div">
-
                 </div>
-
                 <div class="product-select-parent-div">
                     <div class="product-select-left-div">
                         <div class="radio-p-tag-left-div">
@@ -72,12 +60,8 @@
                         </div>
                         <div class="img-left-div">
                             <img src="../images/game1.png" alt="game1" width="300" height="300">
-
                         </div>
-
-
                     </div>
-
                     <div class="product-select-middle-div">
                         <div class="radio-p-tag-middle-div">
                             <input type="radio" name="game" value="videogame2">
@@ -86,14 +70,8 @@
                         </div>
                         <div class="img-middle-div">
                             <img src="../images/game2.png" alt="game2" width="300" height="300">
-
                         </div>
-
-
-
-
                     </div>
-
                     <div class="product-select-right-div">
                         <div class="radio-p-tag-right-div">
                             <input type="radio" name="game" value="videogame3">
@@ -103,17 +81,11 @@
                         <div class="img-right-div">
                             <img src="../images/game3.png" alt="game3" width="300" height="300">
                         </div>
-
                     </div>
-
                 </div>
-
-
-
                 <div class="product-add-on-parent-div">
                     <div class="product-add-on-p-div">
                         <p>Do you want the booklet and case?</p>
-
                     </div>
                     <div class="product-add-on-radio-div">
                         <label>
@@ -125,52 +97,36 @@
                             booklet and case: add $100 to cost of game
                         </label>
                     </div>
-
-
-
                 </div>
                 <div class="product-button-div">
                     <button id="submitOrderButton">Submit Order</button>
                 </div>
-
-
             </div>
             <div class="order-details-parent-div">
                 <div class="order-summary-p-div">
                     <p>Order Summary</p>
                 </div>
-
                 <div class="order-details-purchase-details-div">
                 </div>
-
                 <div class="order-details-product-img-div">
                     <img id="gameImage" src="" alt="Selected Game Image" width="300" height="300"  style="display: none;">
-
                 </div>
-
                 <div class="order-costs-details-div">
                         <p class="subtotal"> sub total</p>
                     <p class="tax">tax</p>
                         <p class="subtotalplustax">total</p>
                 </div>
-
                 <div class="order-personal-details-p-div">
                         <p>Personal details will be listed on next page.</p>
                 </div>
-
             </div>
-
         </div>
         <div>
-
         </div>
-
     </main>
     <footer>
-
     </footer>
     <script>
-
         console.log("Current cookies:", document.cookie);
         function deleteGameAndProductOptionCookies() {
             var cookiesToDelete = ['selectedGame', 'productOption'];
@@ -182,16 +138,7 @@
                 console.log("Cookie deleted: ", cookieName);
             });
         }
-
         deleteGameAndProductOptionCookies();
-
-
-
-
-
-
-
-
 
         $(document).ready(function() {
             var cookies = document.cookie.split(";");
@@ -200,13 +147,10 @@
                 var cookie = cookies[i];
                 var eqPos = cookie.indexOf("=");
                 var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie.trim();
-                console.log("Deleting cookie: ", name); // Log the name of the cookie being deleted
+                console.log("Deleting cookie: ", name);
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
             }
         });
-
-
-
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
@@ -222,25 +166,6 @@
                 }
             });
         });
-
-
-        //
-        // $(document).ready(function() {
-        //     localStorage.clear();
-        // });
-
-        //this deletes our cookies
-        // $(document).ready(function() {
-        //     var cookies = document.cookie.split(";");
-        //
-        //     for (var i = 0; i < cookies.length; i++) {
-        //         var cookie = cookies[i];
-        //         var eqPos = cookie.indexOf("=");
-        //         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        //     }
-        // });
-
 
         $(document).ready(function() {
             $('input[type="radio"][name="game"]').change(function() {
@@ -392,17 +317,8 @@
                 }
                 return null;
             }
-
             updateOrderDetails();
         });
-
-
-
-
-
-
-
-
 
         $(document).ready(function() {
             $('input[type="radio"][name="productOption"]').change(function() {
@@ -410,15 +326,7 @@
                 console.log(selectedOption);
             });
         });
-
-
-
-
-
-
-
     </script>
-
 </div>
 </body>
 </html>
